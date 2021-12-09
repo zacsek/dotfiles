@@ -20,6 +20,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'hrsh7th/cmp-buffer'
   " Plug 'hrsh7th/nvim-cmp'
   
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+
   " fern
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/fern-git-status.vim'
@@ -33,6 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'nvim-lua/completion-nvim'
+  "Plug 'sharkdp/fd'
   
   " git
   Plug 'tpope/vim-fugitive'
@@ -40,3 +43,6 @@ call plug#begin('~/.config/nvim/plugged')
   " undotree
   Plug 'mbbill/undotree'
 call plug#end()
+
+set runtimepath+='~/.config/nvim/lua'
+

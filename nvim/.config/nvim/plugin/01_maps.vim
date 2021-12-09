@@ -29,6 +29,7 @@ nnoremap <silent> <F3> :set hlsearch!<CR>
 " F4 - toggle line wrapping
 nnoremap <silent> <F4> :set wrap!<CR>
 " F5 - toggle list whitespace
+set listchars=eol:$,tab:>-,space:.
 nnoremap <silent> <F5> :set list!<CR>
 " F6 - toggle colorcolumn
 nnoremap <silent> <F6> :execute "set colorcolumn=" . (&colorcolumn == "" ? "80"  : "")<CR>
@@ -36,10 +37,11 @@ nnoremap <silent> <F6> :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" 
 " F8 - toggle paste mode
 nnoremap <silent> <F8> :set paste!<BAR>set paste?<CR>
 " F9
-" F10
+" F10 - toggle undotree
+nnoremap <silent> <F10> :UndotreeToggle<CR>
 
-" open vimrc
-nnoremap <silent> <leader>rc :topleft vnew ~/.config/nvim/init.vim<CR>
+" open vimrc -> moved to plugin/telescope.vim
+"nnoremap <silent> <leader>vrc :topleft vnew ~/.config/nvim/init.vim<CR>
 
 " ,t tabularize on word-start
 nnoremap <silent> <leader>t :Tabularize /\<<CR>
@@ -90,5 +92,6 @@ set completeopt=menuone,menu,longest,preview
 
 
 " --- NERDCommenter
-vmap # :call NERDComment(1, "toggle")<CR>
-nnoremap # V#
+"nnoremap # :call NERDComment(1, "toggle")<CR>
+nmap # <Plug>NERDCommenterToggle
+vmap # <Plug>NERDCommenterToggle
