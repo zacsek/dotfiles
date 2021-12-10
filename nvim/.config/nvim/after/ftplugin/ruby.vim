@@ -1,1 +1,2 @@
-set shiftwidth=2 tabstop=2 softtabstop=2 expandtab=2 autoindent smartindent
+syntax on
+set shiftwidth=2 tabstop=2 softtabstop=2 expandtab autoindent smartindent
