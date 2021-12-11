@@ -40,14 +40,19 @@ nnoremap <silent> <F8> :set paste!<BAR>set paste?<CR>
 " F10 - toggle undotree
 nnoremap <silent> <F10> :UndotreeToggle<CR>
 
-" open vimrc -> moved to plugin/telescope.vim
-"nnoremap <silent> <leader>vrc :topleft vnew ~/.config/nvim/init.vim<CR>
+" open vimrc
+nnoremap <silent> <leader>rc :topleft vnew ~/.vimrc<CR>
+" open bashrc
+nnoremap <silent> <leader>sh :topleft vnew ~/.bashrc<CR>
+" open bash/aliases
+nnoremap <silent> <leader>ald :topleft vnew ~/.config/bash/aliases/default.sh<CR>
+nnoremap <silent> <leader>alh :topleft vnew ~/.config/bash/aliases/%{hostname}.sh<CR>
 
 " ,t tabularize on word-start
 nnoremap <silent> <leader>t :Tabularize /\<<CR>
 
 " open the error console
-nnoremap <leader>cc :botright cope<CR> 
+nnoremap <leader>cc :botright cope<CR>
 " move to next error
 nnoremap <leader>] :cn<CR>
 " move to the prev error
@@ -63,7 +68,7 @@ nnoremap N Nzz
 nnoremap * *Nzz
 
 " open help in a vertical split
-cnoremap vh vert help 
+cnoremap vh vert help
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Split mappings
