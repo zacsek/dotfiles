@@ -11,8 +11,12 @@ if [[ $TILIX_ID ]]; then
         source /etc/profile.d/vte.sh
 fi
 
+# add __git_ps1 function
+source ~/.config/bash/ext_functions/git-completion.bash
+
 declare -a Configs=("aliases" "completions" "configs" "env" "funcs" "paths" "prompt")
 
+# inspired from: https://rafaelc.org/posts/a-way-to-organize-your-bash-aliases-on-multiple-hosts/
 for cfg in ${Configs[@]}; do
     # first include defaults
     if [! -d ~/.config/bash/$cfg ]; then
@@ -26,4 +30,3 @@ for cfg in ${Configs[@]}; do
         . ~/.config/bash/$cfg/$HOSTNAME.sh
     fi
 done
-# inspired from: https://rafaelc.org/posts/a-way-to-organize-your-bash-aliases-on-multiple-hosts/

@@ -1,4 +1,3 @@
-
 #gem_vim() { vim -O lib/vp5/$1.rb spec/$1_spec.rb; }
 #export -f gem_vim
 
