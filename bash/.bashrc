@@ -14,19 +14,19 @@ fi
 # add __git_ps1 function
 source ~/.config/bash/ext_functions/git-completion.bash
 
-declare -a Configs=("aliases" "completions" "configs" "env" "funcs" "paths" "prompt")
+declare -a Configs=( "aliases" "completions" "configs" "env" "funcs" "paths" "prompt" )
 
 # inspired from: https://rafaelc.org/posts/a-way-to-organize-your-bash-aliases-on-multiple-hosts/
 for cfg in ${Configs[@]}; do
     # first include defaults
-    if [[! -d ~/.config/bash/$cfg ]]; then
+    if [ ! -d ~/.config/bash/$cfg ]; then
         . ~/.config/bash/$cfg.sh
     else
         . ~/.config/bash/$cfg/default.sh
     fi
 
     # host specific stuff comes later
-    if [[ -f ~/.config/bash/$cfg/$HOSTNAME.sh ]]; then
+    if [ -f ~/.config/bash/$cfg/$HOSTNAME.sh ]; then
         . ~/.config/bash/$cfg/$HOSTNAME.sh
     fi
 done

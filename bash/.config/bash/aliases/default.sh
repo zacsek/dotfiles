@@ -1,11 +1,12 @@
 alias c='clear'
 alias q='exit'
-alias cl='clear;ls -alh'
 
+alias ls='ls --color --group-directories-first'
 alias l='ls -alh'
 alias ll='ls -alh|less'
 alias lt='ls -alth'
 alias lx='ls -lhX'
+alias cl='c;l'
 
 alias vim='vim -O'
 alias vimrc='vim ~/.vimrc'
