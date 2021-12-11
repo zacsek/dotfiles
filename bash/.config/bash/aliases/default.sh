@@ -1,5 +1,6 @@
 alias c='clear'
 alias q='exit'
+alias cl='clear;ls -alh'
 
 alias l='ls -alh'
 alias ll='ls -alh|less'
