@@ -28,12 +28,12 @@ fi
 # read getopt’s output this way to handle the quoting right:
 eval set -- "$PARSED"
 
-args=("-R" "-t ~")
+args=("-R" "-t $HOME")
 
 while true; do
     case "$1" in
         -a|--all)
-            args+=( "-S $(find . -maxdepth 1 \( ! -name '.*' \) -type d | sed 's/.\///'| xargs)" )
+            args+=( "$(find . -maxdepth 1 \( ! -name '.*' \) -type d | sed 's/.\///'| xargs)" )
             shift
             ;;
         -s|--simulate)
@@ -45,7 +45,7 @@ while true; do
             shift
             ;;
         -m|--module)
-            args+=("-S $2")
+            args+=("$2")
             shift 2
             ;;
         --)
