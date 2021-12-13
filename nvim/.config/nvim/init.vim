@@ -18,7 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'gruvbox-community/gruvbox'
 
   " lsp Plugins
-  " Plug 'neovim/nvim-lspconfig'
+   Plug 'neovim/nvim-lspconfig'
   " Plug 'hrsh7th/cmp-nvim-lsp'
   " Plug 'hrsh7th/cmp-buffer'
   " Plug 'hrsh7th/nvim-cmp'

@@ -28,12 +28,13 @@ fi
 # read getopt’s output this way to handle the quoting right:
 eval set -- "$PARSED"
 
-args=("-R" "-t $HOME")
-
+args=("-R" "-t$HOME")
+modules=()
 while true; do
     case "$1" in
         -a|--all)
-            args+=( "$(find . -maxdepth 1 \( ! -name '.*' \) -type d | sed 's/.\///'| xargs)" )
+            #args+=( "$(find . -maxdepth 1 \( ! -name '.*' \) -type d | sed 's/.\///'| xargs)" )
+            modules+=("bash" "vim" "nvim")
             shift
             ;;
         -s|--simulate)
@@ -45,7 +46,7 @@ while true; do
             shift
             ;;
         -m|--module)
-            args+=("$2")
+            modules+=("$2")
             shift 2
             ;;
         --)
@@ -59,5 +60,7 @@ while true; do
     esac
 done
 
-echo stow "${args[@]}"
+for m in ${modules[@]}; do
+    stow "${args[@]}" $m
+done
 

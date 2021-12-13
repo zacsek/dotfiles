@@ -47,9 +47,9 @@ end
 M.search_vimconfig = function( )
     require("telescope.builtin").find_files({
         prompt_title = "< NVimRC >",
-        --cwd = vim.env.DOTFILES .. 'nvim/.config/nvim',
-        cwd = '~/work/dotfiles/nvim/.config/nvim',
-        --file_ignore_patterns = { "plugged/.*" },
+        cwd = vim.env.DOTFILES .. "/nvim/.config/nvim",
+        --cwd = '~/.config/nvim',
+        file_ignore_patterns = { "autoload/.*" },
         hidden = true
     })
 end
@@ -57,7 +57,8 @@ end
 M.search_bash = function( )
     require("telescope.builtin").find_files({
         prompt_title = "< BashRC >",
-        cwd = "~/.bash",
+        --cwd = "~/.bash",
+        cwd = vim.env.DOTFILES .. '/bash',
         hidden = true
     })
 end
@@ -65,7 +66,7 @@ end
 M.search_zsh = function( )
     require("telescope.builtin").find_files({
         prompt_title = "< ZshRC >",
-        cwd = "~/.zsh",
+        cwd = vim.env.DOTFILES .. '/zsh',
         hidden = true
     })
 end
