@@ -39,7 +39,7 @@ M.search_dotfiles = function()
     require("telescope.builtin").find_files({
         prompt_title = "< DotFiles >",
         cwd = vim.env.DOTFILES,
-        file_ignore_patterns = { "plugged/.*", "undodir/.*", ".git/.*" },
+        file_ignore_patterns = { "autoload/.*", "plugged/.*", "undodir/.*", ".git/.*" },
         hidden = true,
     })
 end
@@ -48,8 +48,7 @@ M.search_vimconfig = function( )
     require("telescope.builtin").find_files({
         prompt_title = "< NVimRC >",
         cwd = vim.env.DOTFILES .. "/nvim/.config/nvim",
-        --cwd = '~/.config/nvim',
-        file_ignore_patterns = { "autoload/.*" },
+        file_ignore_patterns = { "autoload/.*", "plugged/.*", "undodir/.*", ".git/.*" },
         hidden = true
     })
 end

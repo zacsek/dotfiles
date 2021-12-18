@@ -1,5 +1,5 @@
-alias l='exa -l --group-directories-first --git --icons'
-alias lt='exa -lT --group-directories-first --git'
+alias l='exa -la --group-directories-first --git --icons'
+alias lt='exa -lTa --group-directories-first --git'
 
 alias v='view'
 alias vim='nvim -O'

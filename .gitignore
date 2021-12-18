@@ -1,1 +1,3 @@
-.oldies
+.oldies/
+nvim/.config/nvim/plugged/
+nvim/.config/nvim/undodir/
