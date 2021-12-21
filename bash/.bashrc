@@ -14,7 +14,7 @@ fi
 # add __git_ps1 function
 source ~/.config/bash/ext_functions/git-completion.bash
 
-declare -a Configs=( "aliases" "completions" "configs" "env" "funcs" "paths" "prompt" )
+declare -a Configs=( "paths" "env" "configs" "completions" "funcs" "aliases" "prompt" )
 
 # inspired from: https://rafaelc.org/posts/a-way-to-organize-your-bash-aliases-on-multiple-hosts/
 for cfg in ${Configs[@]}; do
