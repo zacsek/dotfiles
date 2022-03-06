@@ -18,10 +18,17 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'gruvbox-community/gruvbox'
 
   " lsp Plugins
-   Plug 'neovim/nvim-lspconfig'
+  Plug 'neovim/nvim-lspconfig'
   " Plug 'hrsh7th/cmp-nvim-lsp'
   " Plug 'hrsh7th/cmp-buffer'
   " Plug 'hrsh7th/nvim-cmp'
+
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+  Plug 'junegunn/fzf'
+
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -45,4 +52,11 @@ call plug#begin('~/.config/nvim/plugged')
 
   " undotree
   Plug 'mbbill/undotree'
+
+  " ruby
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-rake'
+  Plug 'tpope/vim-bundler'
+
 call plug#end()

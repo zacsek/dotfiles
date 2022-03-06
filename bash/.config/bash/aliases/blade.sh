@@ -19,6 +19,7 @@ alias wifipass='echo -n "1@8tUrorooDi6)7" | xclip -selection clipboard'
 
 # directory aliases
 alias work='cd ~/work'
+alias note='cd ~/work/notes'
 alias scripts='cd ~/work/scripts'
 alias vp='cd ~/work/stash/vp5'
 alias vpsrc='cd ~/work/stash/vp5/src/main/scripts'
