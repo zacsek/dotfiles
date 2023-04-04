@@ -4,6 +4,8 @@ require("theprimeagen.telescope")
 --require("theprimeagen.harpoon")
 --require("theprimeagen.lsp")
 
+require("nvim-tree").setup()
+
 P = function(v)
   print(vim.inspect(v))
   return v

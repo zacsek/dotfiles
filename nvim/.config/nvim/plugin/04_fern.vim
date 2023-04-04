@@ -16,7 +16,7 @@ let g:fern_git_status#disable_submodules = 1
 
 " toggle Fern
 
-noremap <silent> <leader>f :Fern . -drawer -reveal=% -toggle<CR>
+"noremap <silent> <leader>f :Fern . -drawer -reveal=% -toggle<CR>
 "noremap <silent> <leader>d :Fern %:h -drawer -reveal=% -toggle<CR>
 
 function! FernInit() abort

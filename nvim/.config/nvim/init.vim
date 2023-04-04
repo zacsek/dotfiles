@@ -14,14 +14,19 @@ endif
 call plug#begin('~/.config/nvim/plugged')
   Plug 'godlygeek/tabular'
   Plug 'scrooloose/nerdcommenter'
+  Plug 'tpope/vim-surround'
 
   Plug 'gruvbox-community/gruvbox'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
   " lsp Plugins
   Plug 'neovim/nvim-lspconfig'
+  "Plug 'dundalek/lazy-lsp.nvim'
   " Plug 'hrsh7th/cmp-nvim-lsp'
   " Plug 'hrsh7th/cmp-buffer'
   " Plug 'hrsh7th/nvim-cmp'
+  "
+  " Plug 'SmiteshP/nvim-navic' " need config
 
   Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -31,6 +36,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'christoomey/vim-tmux-navigator'
+  " nvim-tree file explorer
+  Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+  Plug 'kyazdani42/nvim-tree.lua'
 
   " fern
   Plug 'lambdalisue/fern.vim'
@@ -59,4 +68,14 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-rake'
   Plug 'tpope/vim-bundler'
 
+  " yaml
+  Plug 'cuducos/yaml.nvim'
+
+  " ansible / yaml
+  Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
+
 call plug#end()
+
+
+lua require('plugins')
+

@@ -4,8 +4,12 @@ set shiftwidth=2 tabstop=2 softtabstop=2 expandtab autoindent smartindent
 set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
     \ }
+
+lua << EOF
+require 'lspconfig'.solargraph.setup{}
+EOF
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F11> <Plug>(lcn-menu)

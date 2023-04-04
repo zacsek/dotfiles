@@ -6,12 +6,12 @@ nnoremap <leader>sh :lua require('theprimeagen.telescope').search_bash()<CR>
 nnoremap <leader>zsh :lua require('theprimeagen.telescope').search_zsh()<CR>
 
 
-nnoremap <leader>xs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <Leader>xf :lua require('telescope.builtin').find_files()<CR>
+nnoremap <leader>gr :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <Leader>ff :lua require('telescope.builtin').find_files()<CR>
 
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
-nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
+nnoremap <leader>b :lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>h :lua require('telescope.builtin').help_tags()<CR>
 
 nnoremap <leader>gf :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>gb :lua require('theprimeagen.telescope').git_branches()<CR>

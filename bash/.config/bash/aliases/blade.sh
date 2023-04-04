@@ -1,3 +1,5 @@
+#alias l='exa -la --group-directories-first --icons'
+#alias lt='exa -lTa --group-directories-first'
 alias l='exa -la --group-directories-first --git --icons'
 alias lt='exa -lTa --group-directories-first --git'
 
@@ -31,18 +33,24 @@ alias vic2='cd "~/.PlayOnLinux/wineprefix/Steam/drive_c/Steam/steamapps/common/V
 alias scipio_up='ssh scipio -t tmux a -t upload'
 
 # dubious commands (almost) never used
-alias dns_show='systemd-resolve --status'
+alias dns_show='systemd-resolve --status | ack "Current DNS Server"'
 alias zlu='zlib-flate -uncompress <'
 alias wttr='curl wttr.in/Esslingen'
 alias nmlog='journalctl -u NetworkManager'
 alias bt_battery_freebuds='bluetooth_battery FC:94:35:C4:26:5B'
 alias fix_utf8='find . -type f -exec echo Fixing: {} \; -exec iconv -f utf-8 -t utf-8 -c -o {} {} \;'
 alias find_txt='find . -type f -exec grep -Iq . {} \; -and -print'
+alias battery='upower -i `upower -e | grep "BAT"`'
+alias temp='sensors'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias dfh="df -h | rg -v '/dev/loop|tmpfs|udev'"
 
 # Old C++ stuff
 alias gdb='gdb --silent'
 alias tag='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q $PWD'
 
+# Convert dos to unix line endings
+alias crlf='find . -type f -exec dos2unix {} \;'

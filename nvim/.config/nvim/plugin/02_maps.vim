@@ -4,6 +4,8 @@
 let mapleader=","
 let g:mapleader=","
 
+noremap <silent> <leader>f :NvimTreeToggle<CR>
+
 " toggle between windows
 nnoremap <tab> <c-w>w
 nnoremap <s-tab> :tabnext<CR>
@@ -47,11 +49,14 @@ nnoremap <silent> <F10> :UndotreeToggle<CR>
 nnoremap <silent> <leader>t :Tabularize /\<<CR>
 
 " open the error console
-nnoremap <leader>cc :botright cope<CR> 
+nnoremap <leader>cc :botright cope<CR>
 " move to next error
 nnoremap <leader>] :cn<CR>
 " move to the prev error
 nnoremap <leader>[ :cp<CR>
+
+" copy path of current file to clipboard
+nnoremap <silent> <leader>cp :let @+ = expand("%:p")<CR>
 
 " only keep lines which contain search
 "nnoremap ,v :v/<C-R>//d<CR>gg
@@ -63,7 +68,7 @@ nnoremap N Nzz
 nnoremap * *Nzz
 
 " open help in a vertical split
-cnoremap vh vert help 
+cnoremap vh vert help
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Split mappings

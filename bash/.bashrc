@@ -30,3 +30,13 @@ for cfg in ${Configs[@]}; do
         . ~/.config/bash/$cfg/$HOSTNAME.sh
     fi
 done
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
+ASDF_DIR="$HOME/.asdf/"
+if [ -d "$ASDF_DIR" ]; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+fi

@@ -31,3 +31,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias opt='cd ~/opt'
 alias bin='cd ~/opt/bin'
+
+alias ytd='yt-dlp -f bestvideo+bestaudio --add-chapters --merge-output-format mkv -o "%(uploader)s -- %(title)s [%(id)s].%(ext)s"'
+alias yta='yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 -o "%(uploader)s -- %(title)s [%(id)s].%(ext)s"'
+
+# List Goals of a Makefile:
+alias make_goals="make -p | grep -E '^[a-zA-Z0-9_-]+:([^=]|$)' | grep -v '^Makefile' |  sed 's/://' | sort"
+
