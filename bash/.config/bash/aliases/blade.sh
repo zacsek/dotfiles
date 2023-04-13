@@ -1,7 +1,7 @@
-#alias l='exa -la --group-directories-first --icons'
-#alias lt='exa -lTa --group-directories-first'
-alias l='exa -la --group-directories-first --git --icons'
-alias lt='exa -lTa --group-directories-first --git'
+alias l='exa -la --group-directories-first --icons'
+alias lt='exa -lTa --group-directories-first'
+#alias l='exa -la --group-directories-first --git --icons'
+#alias lt='exa -lTa --group-directories-first --git'
 
 alias v='view'
 alias vim='nvim -O'
@@ -12,7 +12,7 @@ alias vimfzf='nvim -O `fzf -e -m`'
 alias rm='trash-put'
 alias less='less -r'
 
-alias o='gnome-open'
+alias o='xdg-open'
 alias pdf='evince'
 alias img='eog'
 alias xclip='xclip -selection clipboard'
@@ -33,7 +33,7 @@ alias vic2='cd "~/.PlayOnLinux/wineprefix/Steam/drive_c/Steam/steamapps/common/V
 alias scipio_up='ssh scipio -t tmux a -t upload'
 
 # dubious commands (almost) never used
-alias dns_show='systemd-resolve --status | ack "Current DNS Server"'
+alias dns_show='resolvectl status | ack "Current DNS Server"'
 alias zlu='zlib-flate -uncompress <'
 alias wttr='curl wttr.in/Esslingen'
 alias nmlog='journalctl -u NetworkManager'
