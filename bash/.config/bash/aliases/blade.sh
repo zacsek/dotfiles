@@ -54,3 +54,5 @@ alias tag='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q $PWD'
 
 # Convert dos to unix line endings
 alias crlf='find . -type f -exec dos2unix {} \;'
+
+alias git_remote_github="git remote add github \$(gh repo view --json sshUrl --jq .sshUrl)"
