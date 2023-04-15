@@ -12,6 +12,9 @@ if [[ ${PIPESTATUS[0]} -ne 4 ]]; then
     exit 1
 fi
 
+# Get the script's absolute directory path
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+
 OPTIONS=a,s,v,m:
 LONGOPTS=all,simulate,verbose,module:
 
@@ -28,12 +31,11 @@ fi
 # read getopt’s output this way to handle the quoting right:
 eval set -- "$PARSED"
 
-args=("-R" "-t$HOME")
+args=("-R" "-d $script_dir" "-t $HOME")
 modules=()
 while true; do
     case "$1" in
         -a|--all)
-            #args+=( "$(find . -maxdepth 1 \( ! -name '.*' \) -type d | sed 's/.\///'| xargs)" )
             modules+=("bash" "vim" "nvim")
             shift
             ;;
@@ -46,7 +48,13 @@ while true; do
             shift
             ;;
         -m|--module)
-            modules+=("$2")
+            module_path="$script_dir/$2"
+            if [ -d "$module_path" ]; then
+                modules+=("$2")
+            else
+                echo "Error: Invalid module directory: $module_path"
+                exit 4
+            fi
             shift 2
             ;;
         --)
@@ -60,7 +68,27 @@ while true; do
     esac
 done
 
-for m in ${modules[@]}; do
-    stow "${args[@]}" $m
+for module in "${modules[@]}"; do
+    # Make sure that files & dirs are renamed to .bak
+    module_path="$script_dir/$module"
+    already_linked=true
+
+    for item in $(find "$module_path" -maxdepth 1 -mindepth 1 -type f -exec basename {} \;); do
+        target_path="$HOME/$item"
+
+        if [ -L "$target_path" ] && [ "$(readlink -f "$target_path")" == "$(readlink -m "$module_path/$item")" ]; then
+            echo "Skipping $item: Already linked to $module_path/$item"
+        else
+            already_linked=false
+            if [ -e "$target_path" ]; then
+                # If file or dir exists rename to .bak
+                mv "$target_path" "$target_path.bak"
+            fi
+        fi
+    done
+
+    if [ "$already_linked" = false ]; then
+        stow "${args[@]}" "$module"
+    fi
 done
 
