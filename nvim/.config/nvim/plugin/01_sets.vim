@@ -52,6 +52,7 @@ set gdefault                            "" Assume the /g flag on :s substitution
 "--------------------------------------
 
 set clipboard=unnamed                   "" yank to the system register (*) by default
+set clipboard+=unnamedplus              "" yank to the default system clipboard
 set history=100                         "" Number of lines of command line history.
 set undolevels=500                      "" Number of undo levels.
 set ssop-=options                       "" do not store global & local variables in session

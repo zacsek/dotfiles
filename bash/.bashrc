@@ -40,3 +40,5 @@ if [ -d "$ASDF_DIR" ]; then
     . $HOME/.asdf/asdf.sh
     . $HOME/.asdf/completions/asdf.bash
 fi
+
+eval "$(zoxide init bash)"

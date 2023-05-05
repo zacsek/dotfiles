@@ -6,6 +6,11 @@ let g:mapleader=","
 
 noremap <silent> <leader>f :NvimTreeToggle<CR>
 
+" quitting
+nnoremap <leader>qw :wqa<CR>
+nnoremap <leader>qa :qa!<CR>
+nnoremap <leader>qq :q<CR>
+
 " toggle between windows
 nnoremap <tab> <c-w>w
 nnoremap <s-tab> :tabnext<CR>

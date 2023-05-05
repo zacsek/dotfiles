@@ -1,13 +1,25 @@
-alias l='exa -la --group-directories-first --icons'
-alias lt='exa -lTa --group-directories-first'
-#alias l='exa -la --group-directories-first --git --icons'
-#alias lt='exa -lTa --group-directories-first --git'
+# new linux tools
+alias cat='bat'
+alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+alias dup='jdupes --recurse'
+alias dua='dua i'
+alias webpdf='google-chrome --headless --print-to-pdf'
+alias rip='rip --graveyard $GRAVEYARD'
+alias ack='printf "Use rg instead!\n"'
+
+
+#alias l='exa -la --group-directories-first --icons'
+#alias lt='exa -lTa --group-directories-first'
+alias l='exa -la --group-directories-first --git --icons'
+alias lt='exa -lTa --group-directories-first --git'
 
 alias v='view'
 alias vim='nvim -O'
-alias nvimrc='nvim ~/.config/nvim/init.vim'
-alias gvim='gvim -p'
 alias vimfzf='nvim -O `fzf -e -m`'
+alias vimrc='nvim -O ~/.config/nvim/init.vim ~/.config/nvim/plugin/02_maps.vim'
+alias vbashrc='nvim -O ~/.bashrc'
+alias valias='nvim -O ~/.config/bash/aliases/*'
+alias bashsrc='source ~/.bashrc'
 
 alias rm='trash-put'
 alias less='less -r'
@@ -33,7 +45,7 @@ alias vic2='cd "~/.PlayOnLinux/wineprefix/Steam/drive_c/Steam/steamapps/common/V
 alias scipio_up='ssh scipio -t tmux a -t upload'
 
 # dubious commands (almost) never used
-alias dns_show='resolvectl status | ack "Current DNS Server"'
+alias dns_show='resolvectl status | rg "Current DNS Server"'
 alias zlu='zlib-flate -uncompress <'
 alias wttr='curl wttr.in/Esslingen'
 alias nmlog='journalctl -u NetworkManager'
@@ -56,3 +68,5 @@ alias tag='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q $PWD'
 alias crlf='find . -type f -exec dos2unix {} \;'
 
 alias git_remote_github="git remote add github \$(gh repo view --json sshUrl --jq .sshUrl)"
+
+alias pip='python3 -m pip'
