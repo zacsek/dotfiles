@@ -42,3 +42,4 @@ if [ -d "$ASDF_DIR" ]; then
 fi
 
 eval "$(zoxide init bash)"
+. "$HOME/.cargo/env"

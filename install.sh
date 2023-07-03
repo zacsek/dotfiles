@@ -14,6 +14,7 @@ fi
 
 # Get the script's absolute directory path
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+echo "Script dir: $script_dir"
 
 OPTIONS=a,s,v,m:
 LONGOPTS=all,simulate,verbose,module:

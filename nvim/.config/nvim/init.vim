@@ -42,10 +42,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kyazdani42/nvim-tree.lua'
 
   " fern
-  Plug 'lambdalisue/fern.vim'
-  Plug 'lambdalisue/fern-git-status.vim'
+  "Plug 'lambdalisue/fern.vim'
+  "Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/nerdfont.vim'
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  "Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/glyph-palette.vim'
 
   " telescope
