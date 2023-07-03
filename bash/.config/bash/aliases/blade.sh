@@ -13,13 +13,17 @@ alias ack='printf "Use rg instead!\n"'
 alias l='exa -la --group-directories-first --git --icons'
 alias lt='exa -lTa --group-directories-first --git'
 
+NVIM_ALT='NVIM_APPNAME=nvim-chad nvim'
+
 alias v='view'
-alias vim='nvim -O'
-alias vimfzf='nvim -O `fzf -e -m`'
-alias vimrc='nvim -O ~/.config/nvim/init.vim ~/.config/nvim/plugin/02_maps.vim'
-alias vbashrc='nvim -O ~/.bashrc'
-alias valias='nvim -O ~/.config/bash/aliases/*'
-alias bashsrc='source ~/.bashrc'
+alias nv="$NVIM_ALT -O"
+alias nvim="$NVIM_ALT -O"
+
+alias vim="$NVIM_ALT -O"
+# alias vimfzf="$NVIM_ALT -O `fzf -e -m`"
+alias vimrc="$NVIM_ALT -O ~/.config/nvim/init.vim ~/.config/nvim/plugin/02_maps.vim"
+alias vbashrc="$NVIM_ALT -O ~/.bashrc"
+alias valias="$NVIM_ALT -O ~/.config/bash/aliases/*"
 
 alias rm='trash-put'
 alias less='less -r'

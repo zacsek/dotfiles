@@ -39,4 +39,9 @@ alias yta='yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 -o "%(upl
 # List Goals of a Makefile:
 alias make_goals="make -p | grep -E '^[a-zA-Z0-9_-]+:([^=]|$)' | grep -v '^Makefile' |  sed 's/://' | sort"
 
+alias myip='curl icanhazip.com'
 
+alias upd='sudo apt update && apt list --upgradable'
+alias upg='sudo apt upgrade -y'
+
+alias bashsrc='source ~/.bashrc'
