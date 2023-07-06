@@ -31,6 +31,7 @@ alias gitd="git diff"
 alias gitk='gitk --all'
 alias gitg='gitg --all'
 alias gitlog='git log --oneline --abbrev-commit --all --graph --decorate --color'
+alias git_remote_github='git remote add github $(gh repo view --json sshUrl --jq .sshUrl)'
 
 # directory aliases
 alias ..='cd ..'
@@ -51,13 +52,14 @@ alias upd='sudo apt update && apt list --upgradable'
 alias upg='sudo apt upgrade -y'
 
 alias cat='batcat'
-alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+alias fzf='fzf --preview "batcat --color=always --style=numbers --line-range=:500 {}"'
 alias dup='jdupes --recurse'
 alias ack='printf "Use rg instead!\n"'
 #alias l='exa -la --group-directories-first --git --icons'
 #alias lt='exa -lTa --group-directories-first --git'
 
 alias v='view'
+alias nv='nvim -O'
 alias vim='nvim -O'
 alias vim_fzf='nvim -O `fzf -e -m`'
 alias vim_rc='nvim -O ~/.config/nvim/init.vim ~/.config/nvim/plugin/02_maps.vim'
