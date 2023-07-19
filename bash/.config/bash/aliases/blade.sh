@@ -1,29 +1,16 @@
 # new linux tools
-alias cat='bat'
-alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+alias cat='batcat'
+alias fzf='fzf --preview "batcat --color=always --style=numbers --line-range=:500 {}"'
 alias dup='jdupes --recurse'
 alias dua='dua i'
 alias webpdf='google-chrome --headless --print-to-pdf'
 alias rip='rip --graveyard $GRAVEYARD'
 alias ack='printf "Use rg instead!\n"'
 
-
 #alias l='exa -la --group-directories-first --icons'
 #alias lt='exa -lTa --group-directories-first'
 alias l='exa -la --group-directories-first --git --icons'
 alias lt='exa -lTa --group-directories-first --git'
-
-NVIM_ALT='NVIM_APPNAME=nvim-chad nvim'
-
-alias v='view'
-alias nv="$NVIM_ALT -O"
-alias nvim="$NVIM_ALT -O"
-
-alias vim="$NVIM_ALT -O"
-# alias vimfzf="$NVIM_ALT -O `fzf -e -m`"
-alias vimrc="$NVIM_ALT -O ~/.config/nvim/init.vim ~/.config/nvim/plugin/02_maps.vim"
-alias vbashrc="$NVIM_ALT -O ~/.bashrc"
-alias valias="$NVIM_ALT -O ~/.config/bash/aliases/*"
 
 alias rm='trash-put'
 alias less='less -r'
@@ -67,9 +54,5 @@ alias dfh="df -h | rg -v '/dev/loop|tmpfs|udev'"
 # Old C++ stuff
 alias gdb='gdb --silent'
 alias tag='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q $PWD'
-
-# Convert dos to unix line endings
-alias crlf='find . -type f -exec dos2unix {} \;'
-
 
 alias pip='python3 -m pip'

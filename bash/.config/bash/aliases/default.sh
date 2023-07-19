@@ -1,21 +1,36 @@
 alias c='clear'
 alias q='exit'
 
-alias l='exa -la --group-directories-first --icons'
-alias lt='exa -lTa --group-directories-first'
+alias cat='batcat'
+alias fzf='fzf --preview "batcat --color=always --style=numbers --line-range=:500 {}"'
+#alias fzf='fzf --preview "cat --color=always --style=numbers --line-range=:500 {}"'
+
+alias dup='jdupes --recurse'
+alias ack='printf "Use rg instead!\n"'
+
+alias cd_nvim='cd ~/.config/nvim'
+alias cd_bash='cd ~/.config/bash'
+alias cd_dot='cd ~/dotfiles'
 
 alias ls='ls --color --group-directories-first'
+alias l='exa -la --group-directories-first --icons'
+#alias l='exa -la --group-directories-first --git --icons'
+alias lt='exa -lTa --group-directories-first'
+#alias lt='exa -lTa --group-directories-first --git'
 #alias l='ls -alh'
-#alias ll='ls -alh|less'
 #alias lt='ls -alth'
+alias ll='ls -alh|less'
 alias lx='ls -lhX'
 alias cl='c;l'
 
-#alias vim='nvim -O'
-#alias vim_alias='nvim -O ~/.config/bash/aliases/*'
-#alias vim_path='nvim -O ~/.config/bash/paths/*'
-#alias vim_bash='nvim -O ~/.bashrc'
-#alias vimrc='vim ~/.config/nvim/init.vim'
+alias nv="nvim -O"
+alias vim='nvim -O'
+alias vf="find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O"
+alias vrc="pushd ~/.config/nvim/lua/custom && (find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O) && popd"
+alias valias="nvim -O ~/.config/bash/aliases/*"
+alias vpath='nvim -O ~/.config/bash/paths/*'
+alias vbash="nvim -O ~/.bashrc"
+alias bashsrc='source ~/.bashrc'
 
 alias docki='docker image'
 alias dockc='docker container'
@@ -31,7 +46,10 @@ alias gitd="git diff"
 alias gitk='gitk --all'
 alias gitg='gitg --all'
 alias gitlog='git log --oneline --abbrev-commit --all --graph --decorate --color'
-alias git_remote_github='git remote add github $(gh repo view --json sshUrl --jq .sshUrl)'
+alias git_remote_github="git remote add github \$(gh repo view --json sshUrl --jq .sshUrl)"
+
+# Convert dos to unix line endings
+alias crlf='find . -type f -exec dos2unix {} \;'
 
 # directory aliases
 alias ..='cd ..'
@@ -51,25 +69,3 @@ alias myip='curl icanhazip.com'
 alias upd='sudo apt update && apt list --upgradable'
 alias upg='sudo apt upgrade -y'
 
-alias cat='batcat'
-alias fzf='fzf --preview "batcat --color=always --style=numbers --line-range=:500 {}"'
-alias dup='jdupes --recurse'
-alias ack='printf "Use rg instead!\n"'
-#alias l='exa -la --group-directories-first --git --icons'
-#alias lt='exa -lTa --group-directories-first --git'
-
-alias v='view'
-alias nv='nvim -O'
-alias vim='nvim -O'
-alias vim_fzf='nvim -O `fzf -e -m`'
-alias vf="find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O"
-alias vim_rc='nvim -O ~/.config/nvim/init.vim ~/.config/nvim/plugin/02_maps.vim'
-alias vim_bash='nvim -O ~/.bashrc'
-alias vim_path='nvim -O ~/.config/bash/paths/*'
-alias vim_alias='nvim -O ~/.config/bash/aliases/*'
-alias src_bash='source ~/.bashrc'
-alias bashsrc='source ~/.bashrc'
-
-alias cd_nvim='cd ~/.config/nvim'
-alias cd_bash='cd ~/.config/bash'
-alias cd_dot='cd ~/dotfiles'
