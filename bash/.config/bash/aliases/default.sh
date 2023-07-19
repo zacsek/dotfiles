@@ -62,6 +62,7 @@ alias v='view'
 alias nv='nvim -O'
 alias vim='nvim -O'
 alias vim_fzf='nvim -O `fzf -e -m`'
+alias vf="find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O"
 alias vim_rc='nvim -O ~/.config/nvim/init.vim ~/.config/nvim/plugin/02_maps.vim'
 alias vim_bash='nvim -O ~/.bashrc'
 alias vim_path='nvim -O ~/.config/bash/paths/*'
