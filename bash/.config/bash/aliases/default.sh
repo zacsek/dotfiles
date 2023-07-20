@@ -23,6 +23,7 @@ alias ll='ls -alh|less'
 alias lx='ls -lhX'
 alias cl='c;l'
 
+alias v="nvim -O"
 alias nv="nvim -O"
 alias vim='nvim -O'
 alias vf="find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O"
