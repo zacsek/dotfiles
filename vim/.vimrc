@@ -18,10 +18,8 @@ call plug#begin('~/.vim/plugged')
 
   " fern
   Plug 'lambdalisue/fern.vim'
-  "Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-  "Plug 'lambdalisue/glyph-palette.vim'
 
   " git
   Plug 'tpope/vim-fugitive'

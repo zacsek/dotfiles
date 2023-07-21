@@ -1,8 +1,8 @@
 "--------------------------------------
 " Mappings
 "--------------------------------------
-let mapleader=","
-let g:mapleader=","
+let mapleader=" "
+let g:mapleader=" "
 
 " toggle between windows
 nnoremap <tab> <c-w>w
