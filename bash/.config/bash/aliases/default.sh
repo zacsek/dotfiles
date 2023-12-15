@@ -60,6 +60,7 @@ alias opt='cd ~/opt'
 alias bin='cd ~/opt/bin'
 
 alias ytd='yt-dlp -f bestvideo+bestaudio --add-chapters --merge-output-format mkv -o "%(uploader)s -- %(title)s [%(id)s].%(ext)s"'
+alias ytpl='yt-dlp -f "bv*[height<=1080]+ba/ba" --sponsorblock-remove all --embed-metadata --embed-thumbnail --add-chapters --merge-output-format mkv --yes-playlist -o "%(playlist_index)02d. %(title)s [%(id)s].%(ext)s"'
 alias yta='yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 -o "%(uploader)s -- %(title)s [%(id)s].%(ext)s"'
 
 # List Goals of a Makefile:
@@ -70,3 +71,4 @@ alias myip='curl icanhazip.com'
 alias upd='sudo apt update && apt list --upgradable'
 alias upg='sudo apt upgrade -y'
 
+alias witch='function _wfollow() { local file=$(which $1); while [ -L "$file" ]; do echo -n "$file -> "; file=$(readlink -f "$file"); done; echo $file; }; _wfollow'
