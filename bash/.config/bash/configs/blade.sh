@@ -5,4 +5,4 @@
     #eval "$(frum completions)"
 #fi
 
-source ~/.venv/bin/activate
+# source ~/.venv/bin/activate

@@ -72,3 +72,4 @@ alias upd='sudo apt update && apt list --upgradable'
 alias upg='sudo apt upgrade -y'
 
 alias witch='function _wfollow() { local file=$(which $1); while [ -L "$file" ]; do echo -n "$file -> "; file=$(readlink -f "$file"); done; echo $file; }; _wfollow'
+alias pack='function _dpkgs() { local file=$(which $1); dpkg -S $file; }; _dpkgs'
