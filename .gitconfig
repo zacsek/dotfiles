@@ -1,0 +1,60 @@
+[user]
+	name = Zoltan Szocs
+	email = zacsek@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+	noprefix = false
+	tool = meld
+[push]
+	default = current
+[color]
+	ui = true
+	status = always
+	diff = always
+	branch = auto
+	interactive = auto
+[alias]
+	st      = status --short --branch
+	co      = checkout
+	out     = log FETCH_HEAD..HEAD
+	in      = log HEAD..FETCH_HEAD
+	ignored = ls-files --others -i --exclude-standard
+	ffm     = merge --ff-only
+	ffp     = pull --ff-only
+	lol     = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola    = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ru      = "!f() { \
+					REMOTES=$(git remote); \
+					REMOTE=\"origin\"; \
+					case \"$REMOTES\" in \
+					*upstream*) \
+					REMOTE=\"upstream\"; \
+					;; \
+					esac; \
+					git fetch $REMOTE; \
+					git update-ref refs/heads/master refs/remotes/$REMOTE/master; \
+					git checkout master >/dev/null 2>&1; \
+					git reset --hard $REMOTE/master >/dev/null 2>&1; \
+					git checkout - >/dev/null 2>&1; \
+				}; f"
+	;from https://memcpy.io/git-reset-upstream.html
+	whatadded = log --diff-filter=A
+  undo = reset --soft HEAD^
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
