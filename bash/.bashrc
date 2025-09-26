@@ -1,4 +1,5 @@
 # If not running interactively, don't do anything
+# set -o vi
 source /etc/profile
 
 export LC_ALL=en_US.UTF-8
@@ -35,13 +36,11 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
 
-ASDF_DIR="$HOME/.asdf/"
-if [ -d "$ASDF_DIR" ]; then
-    . $HOME/.asdf/asdf.sh
-    . $HOME/.asdf/completions/asdf.bash
-fi
-
 eval "$(zoxide init bash)"
+eval "$(direnv hook bash)"
+
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
+
+eval "$(/home/zacsek/.local/bin/mise activate bash)"

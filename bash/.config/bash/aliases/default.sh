@@ -7,6 +7,7 @@ alias fzf='fzf --preview "batcat --color=always --style=numbers --line-range=:50
 
 alias dup='jdupes --recurse'
 alias ack='printf "Use rg instead!\n"'
+alias rg='rg -i'
 
 alias cd_nvim='cd ~/.config/nvim'
 alias cd_bash='cd ~/.config/bash'
@@ -73,3 +74,5 @@ alias upg='sudo apt upgrade -y'
 
 alias witch='function _wfollow() { local file=$(which $1); while [ -L "$file" ]; do echo -n "$file -> "; file=$(readlink -f "$file"); done; echo $file; }; _wfollow'
 alias pack='function _dpkgs() { local file=$(which $1); dpkg -S $file; }; _dpkgs'
+
+alias gh_stars="gh api user/starred --paginate --template '{{range .}}{{.full_name|color \"yellow\"}} ({{timeago .updated_at}}){{\"\\n\"}}{{end}}'"
