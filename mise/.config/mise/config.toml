@@ -1,0 +1,22 @@
+
+[tools]
+"cargo:lq" = "latest"
+fd = "latest"
+gemini-cli = "latest"
+jqp = "latest"
+lazydocker = "latest"
+lazygit = "latest"
+lazyjournal = "latest"
+mkcert = "latest"
+mongosh = "latest"
+node = "latest"
+nodejs = "latest"
+python = "latest"
+ruby = "latest"
+rust = "latest"
+terraform = "latest"
+zellij = "latest"
+zoxide = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
