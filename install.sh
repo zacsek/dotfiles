@@ -6,6 +6,12 @@ set -e # Exit on error
 
 # --- Configuration ---
 DATE=$(date +%Y-%m-%d)
+
+# --- Argument Parsing ---
+INSTALL_FOR_ROOT=true
+if [ "$1" == "--no-root" ]; then
+    INSTALL_FOR_ROOT=false
+fi
 # Assumes the script is run from the root of the dotfiles repository
 DOTFILES_DIR=$(pwd)
 USER_HOME="$HOME"
@@ -51,44 +57,44 @@ echo "### Processing for user: $USER ###"
 for pkg in $PACKAGES; do
     echo "--- Analyzing package: $pkg ---"
     
-    # Use stow's dry run (-n) to find what items would be linked.
-    # For each of those items, back it up if it already exists.
-    stow -n -t "$USER_HOME" "$pkg" 2>&1 | while read -r line; do
-        # We are interested in lines indicating a link, like "LINK: .vimrc => ..."
-        if [[ "$line" == "LINK: "* ]]; then
-            # Extract the target file/dir name. It's the word after "LINK: "
-            target_name=$(echo "$line" | sed -n 's/^LINK: \([^ ]*\).*/\1/p')
-            if [ -n "$target_name" ]; then
-                backup_item "$USER_HOME/$target_name"
-            fi
-        fi
-    done
-    
+    # Find conflicting files by capturing stow's dry-run error output.
+    CONFLICTS=$(stow -n -t "$USER_HOME" "$pkg" 2>&1 >/dev/null | grep 'existing target' | sed 's/.*: //')
+
+    if [ -n "$CONFLICTS" ]; then
+        for conflict in $CONFLICTS; do
+            backup_item "$USER_HOME/$conflict"
+        done
+    fi
+
     echo "Stowing '$pkg' for the current user..."
     stow -t "$USER_HOME" "$pkg"
 done
 
-echo ""
-echo "### Processing for root user ###"
-echo "You may be prompted for your password."
+# --- Process for the root user (optional) ---
+if [ "$INSTALL_FOR_ROOT" = true ]; then
+    echo ""
+    echo "### Processing for root user ###"
+    echo "You may be prompted for your password."
 
-# --- Process for the root user ---
-for pkg in $PACKAGES; do
-    echo "--- Analyzing package for root: $pkg ---"
+    for pkg in $PACKAGES; do
+        echo "--- Analyzing package for root: $pkg ---"
 
-    # Dry-run stow with sudo to find conflicts in root's home directory.
-    sudo stow -n -t "$ROOT_HOME" "$pkg" 2>&1 | while read -r line; do
-        if [[ "$line" == "LINK: "* ]]; then
-            target_name=$(echo "$line" | sed -n 's/^LINK: \([^ ]*\).*/\1/p')
-            if [ -n "$target_name" ]; then
-                sudo_backup_item "$ROOT_HOME/$target_name"
-            fi
+        # Find conflicting files by capturing stow's dry-run error output as root.
+        CONFLICTS=$(sudo stow -n -t "$ROOT_HOME" "$pkg" 2>&1 >/dev/null | grep 'existing target' | sed 's/.*: //')
+
+        if [ -n "$CONFLICTS" ]; then
+            for conflict in $CONFLICTS; do
+                sudo_backup_item "$ROOT_HOME/$conflict"
+            done
         fi
-    done
 
-    echo "Stowing '$pkg' for the root user..."
-    sudo stow -t "$ROOT_HOME" "$pkg"
-done
+        echo "Stowing '$pkg' for the root user..."
+        sudo stow -t "$ROOT_HOME" "$pkg"
+    done
+else
+    echo ""
+    echo "Skipping root user installation because --no-root was passed."
+fi
 
 echo ""
 echo "Process complete."
