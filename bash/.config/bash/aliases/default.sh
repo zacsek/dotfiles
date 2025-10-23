@@ -76,3 +76,4 @@ alias witch='function _wfollow() { local file=$(which $1); while [ -L "$file" ];
 alias pack='function _dpkgs() { local file=$(which $1); dpkg -S $file; }; _dpkgs'
 
 alias gh_stars="gh api user/starred --paginate --template '{{range .}}{{.full_name|color \"yellow\"}} ({{timeago .updated_at}}){{\"\\n\"}}{{end}}'"
+alias print='function _figlolprint() { local msg=$1; figlet $1 | lolcat --seed 60; }; _figlolprint'
