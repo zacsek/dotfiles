@@ -1,58 +1,72 @@
--- EXAMPLE 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local nvchad_lsp = require "nvchad.configs.lspconfig"
+local telescope_builtin = require "telescope.builtin"
+local utils = require "utils"
 
-local lspconfig = require "lspconfig"
+local on_attach = nvchad_lsp.on_attach
+-- local on_attach = function(client, bufnr)
+--   nvchad_lsp.on_attach(client, bufnr)
+--
+--   local opts = { buffer = bufnr }
+--   vim.keymap.set("n", "gd", function()
+--     telescope_builtin.lsp_definitions({
+--       jump_type = "tab",
+--       on_list = function(results)
+--         return utils.deduplicate_locations(results)
+--       end,
+--     })
+--   end, opts)
+--   vim.keymap.set("n", "gi", function()
+--     telescope_builtin.lsp_implementations({
+--       jump_type = "tab",
+--       on_list = function(results)
+--         return utils.deduplicate_locations(results)
+--       end,
+--     })
+--   end, opts)
+-- end
+local capabilities = nvchad_lsp.capabilities
 
-local servers = {
-  "bashls",
-  "cssls",
-  "docker_compose_language_service",
-  "dockerls",
-  "html",
-  "java_language_server",
-  "kotlin_language_server",
-  "lua_ls",
-  "ruby_ls",
-  "sqlls",
-  "standardrb",
-  "terraformls",
-  "vimls",
-  -- "bash-debug-adapter",
-  -- "bash-language-server",
-  -- "docker-compose-language-service",
-  -- "dockerfile-language-server",
-  -- "java-language-server",
-  -- "kotlin-debug-adapter",
-  -- "kotlin-language-server",
-  -- "lua-language-server",
-  -- "prettier",
-  -- "rubocop",
-  -- "ruby-lsp",
-  -- "rust-analyzer",
-  -- "solargraph",
-  -- "spectral",
-  -- "spectral-language-server",
-  -- "sqlls",
-  -- "standardrb",
-  -- "stylua",
-  -- "terraform-ls",
-  -- "vim-language-server",
-}
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
-
--- typescript
-lspconfig.tsserver.setup {
+-- HTML
+vim.lsp.config("html", {
   on_attach = on_attach,
-  on_init = on_init,
   capabilities = capabilities,
-}
+})
+vim.lsp.enable("html")
+
+-- CSS
+vim.lsp.config("cssls", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+vim.lsp.enable("cssls")
+
+-- YAML
+vim.lsp.config("yamlls", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+vim.lsp.enable("yamlls")
+
+-- JSON
+vim.lsp.config("jsonls", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+vim.lsp.enable("jsonls")
+
+-- Ruby
+vim.lsp.config("ruby_lsp", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "ruby" },
+  cmd = { "/home/zacsek/.local/share/mise/installs/ruby/3.4.7/bin/ruby-lsp" },
+})
+vim.lsp.enable("ruby_lsp")
+
+-- RuboCop
+-- vim.lsp.config("rubocop", {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes = { "ruby" },
+-- })
+-- vim.lsp.enable("rubocop")

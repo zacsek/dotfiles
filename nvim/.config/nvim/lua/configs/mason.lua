@@ -1,24 +1,14 @@
 return {
-  ensure_installed = {
-    "bash-language-server",
-    "css-lsp",
-    "docker-compose-language-service",
-    "dockerfile-language-server",
-    "html-lsp",
-    "java-language-server",
-    "kotlin-language-server",
-    "lua-language-server",
-    "ruby-lsp",
-    -- "solargraph",
-    -- "spectral-language-server",
-    "sqlls",
-    "standardrb",
-    "terraform-ls",
-    "vim-language-server",
-    -- "bash-debug-adapter",
-    -- "kotlin-debug-adapter",
-    -- "rubocop",
-    -- "rust-analyzer",
-    -- "stylua",
-  },
+	ensure_installed = {
+		"lua-language-server",
+		"stylua", -- LSP and formatter for Lua
+		"html-lsp",
+		"css-lsp",
+		"prettier", -- LSP and formatter for html,css
+		"pyright", -- a lightweight LSP for python
+		"black", -- an auto-formating tool for pyhton
+		"clangd", -- a powerful LSP for C++ (includes linting, static analysis, etc.)
+		"clang-format", -- a c++ formatter
+		"ruby-lsp",
+	}
 }
