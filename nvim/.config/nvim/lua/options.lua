@@ -76,3 +76,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+
+-- Check if running in WSL
+if vim.fn.has('wsl') == 1 then
+  -- Set the clipboard provider to use win32yank.exe
+  vim.g.clipboard = {
+    name = 'win32yank-wsl',
+    copy = {
+      ['+'] = 'win32yank.exe -i --crlf',
+      ['*'] = 'win32yank.exe -i --crlf',
+    },
+    paste = {
+      ['+'] = 'win32yank.exe -o --lf',
+      ['*'] = 'win32yank.exe -o --lf',
+    },
+    choice = 'win32yank-wsl',
+  }
+end

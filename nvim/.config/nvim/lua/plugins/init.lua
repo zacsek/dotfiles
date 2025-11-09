@@ -64,4 +64,9 @@ return {
 			"TmuxNavigatePrevious",
 		},
 	},
+
+	{
+		"mbbill/undotree",
+		lazy = false,
+	},
 }
