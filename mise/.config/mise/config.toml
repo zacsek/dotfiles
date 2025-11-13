@@ -1,8 +1,9 @@
 
 [tools]
-# "cargo:lq" = "latest"
+"cargo:lq" = "latest"
 fd = "latest"
-gemini-cli = "latest"
+# gemini-cli = "latest"
+gemini = "latest"
 jqp = "latest"
 lazydocker = "latest"
 lazygit = "latest"
