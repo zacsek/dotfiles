@@ -1,3 +1,4 @@
 .oldies/
-nvim/.config/nvim/plugged/
-nvim/.config/nvim/undodir/
+.ruby-lsp
+# nvim/.config/nvim/plugged/
+# nvim/.config/nvim/undodir/

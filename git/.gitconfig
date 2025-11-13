@@ -28,7 +28,7 @@
 	interactive = auto
 
 [pretty]
-  custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+	custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
   #                     │        │            │            │             └─ author name
   #                     │        │            │            └─ message
   #                     │        │            └─ date (relative)
@@ -46,27 +46,28 @@
 	lol     = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola    = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	ru      = "!f() { \
-					REMOTES=$(git remote); \
-					REMOTE=\"origin\"; \
-					case \"$REMOTES\" in \
-					*upstream*) \
-					REMOTE=\"upstream\"; \
-					;; \
-					esac; \
-					git fetch $REMOTE; \
-					git update-ref refs/heads/master refs/remotes/$REMOTE/master; \
-					git checkout master >/dev/null 2>&1; \
-					git reset --hard $REMOTE/master >/dev/null 2>&1; \
-					git checkout - >/dev/null 2>&1; \
-				}; f"
+		REMOTES=$(git remote); \
+		REMOTE=\"origin\"; \
+		case \"$REMOTES\" in \
+		*upstream*) \
+		REMOTE=\"upstream\"; \
+		;; \
+		esac; \
+		git fetch $REMOTE; \
+		git update-ref refs/heads/master refs/remotes/$REMOTE/master; \
+		git checkout master >/dev/null 2>&1; \
+		git reset --hard $REMOTE/master >/dev/null 2>&1; \
+		git checkout - >/dev/null 2>&1; \
+		}; f"
 	;from https://memcpy.io/git-reset-upstream.html
 	whatadded = log --diff-filter=A
-  lg = log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  fc = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative --grep=$1; }; f"
-  fs = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative -S$1; }; f"
-  contributors = shortlog -n -s
-  remotes = remote -v
-  graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
+	undo = reset --soft HEAD^
+	lg = log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	fc = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative --grep=$1; }; f"
+	fs = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative -S$1; }; f"
+	contributors = shortlog -n -s
+	remotes = remote -v
+	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
 
 [interactive]
 	diffFilter = diff-so-fancy --patch
