@@ -4,13 +4,11 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 -- Diagnostics
-map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 map('n', '<leader>td', function()
   if vim.diagnostic.is_enabled() then
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
     print("Diagnostics disabled")
   else
     vim.diagnostic.enable()
@@ -70,12 +68,6 @@ map("n", "<leader>qq", "<cmd>TroubleToggle quickfix<CR>", { desc = "Open Quickfi
 map("n", "<leader>ql", "<cmd>TroubleToggle loclist<CR>", { desc = "Open Location List" })
 map("n", "<leader>qt", "<cmd>TodoTrouble<CR>", { desc = "Open Todo Trouble" })
 
--- Tmux
-map("n", "<c-l>", "<cmd>:TmuxNavigateRight<cr>", { desc = "Tmux Right" })
-map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
-map("n", "<c-k>", "<cmd>:TmuxNavigateUp<cr>", { desc = "Tmux Up" })
-map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
-
 -- Tests
 map("n", "<leader>tt", function()
   require("neotest").run.run()
@@ -128,6 +120,3 @@ end, { desc = "Toogle Terminal Float" })
 
 -- Basic
 map("i", "jj", "<ESC>")
-map("i", "<C-g>", function()
-  return vim.fn["codeium#Accept"]()
-end, { expr = true })

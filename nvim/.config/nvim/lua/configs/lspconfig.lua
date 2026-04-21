@@ -1,6 +1,6 @@
 local nvchad_lsp = require "nvchad.configs.lspconfig"
 local telescope_builtin = require "telescope.builtin"
-local utils = require "utils"
+-- local utils = require "utils"
 
 local on_attach = nvchad_lsp.on_attach
 -- local on_attach = function(client, bufnr)
@@ -59,7 +59,7 @@ vim.lsp.config("ruby_lsp", {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "ruby" },
-  cmd = { "/home/zacsek/.local/share/mise/installs/ruby/3.4.7/bin/ruby-lsp" },
+  cmd = { "mise", "exec", "ruby", "--", "ruby-lsp" },
 })
 vim.lsp.enable("ruby_lsp")
 
