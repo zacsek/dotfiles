@@ -104,7 +104,6 @@ alias rg='rg -i'
 alias rip='rip --graveyard $GRAVEYARD' # https://github.com/nivekuil/rip
 alias temp='sensors'
 alias webpdf='google-chrome --headless --print-to-pdf'
-alias wifipass='echo -n "1@8tUrorooDi6)7" | xclip -selection clipboard'
 alias witch='function _wfollow() { local file=$(which $1); while [ -L "$file" ]; do echo -n "$file -> "; file=$(readlink -f "$file"); done; echo $file; }; _wfollow'
 alias wttr='curl wttr.in/Esslingen'
 alias xclip='xclip -selection clipboard'
