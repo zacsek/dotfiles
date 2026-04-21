@@ -51,9 +51,9 @@ set gdefault                            "" Assume the /g flag on :s substitution
 " Copy/Paste & Undo
 "--------------------------------------
 
-set clipboard=unnamed                   "" yank to the system register (*) by default
-set history=100                         "" Number of lines of command line history.
-set undolevels=500                      "" Number of undo levels.
+set clipboard=unnamedplus               "" sync with system clipboard
+set history=1000                        "" Number of lines of command line history.
+set undolevels=1000                     "" Number of undo levels.
 set ssop-=options                       "" do not store global & local variables in session
 set ssop-=folds                         "" do not store folds in session
 set undodir=~/.vim/undodir
@@ -68,9 +68,14 @@ set nofoldenable
 "--------------------------------------
 " Appearance
 "--------------------------------------
-" set title
-" set noshowmode
-" set ls=0
+set breakindent                         "" Enable break indent
+set splitright                          "" Configure how new splits should be opened
+set splitbelow
+set list                                "" Show certain whitespace characters
+set listchars=tab:»\ ,trail:·,nbsp:␣
+set cursorline                          "" Show which line your cursor is on
+set scrolloff=10                        "" Minimal number of screen lines to keep above and below the cursor.
+
 set autoread                            "" auto read when file is changed from outside
 set cmdheight=1                         "" Give more space for displaying messages.
 set isfname+=@-@
@@ -81,7 +86,6 @@ set noerrorbells
 set nostartofline                       "" Do not jump to first character with page commands,
 set nowrap                              "" wrap off
 set ruler                               "" Show the line and column numbers of the cursor.
-set scrolloff=8                         "" Keep a context when scrolling.
 set shortmess+=c                        "" Don't pass messages to |ins-completion-menu|.
 set showbreak=+                         "" Show a '+' if a line is longer than the screen.
 set showcmd                             "" Show (partial) command in status line.
@@ -92,7 +96,8 @@ set sidescrolloff=5
 set signcolumn=yes
 set termguicolors
 set textwidth=0                         "" Don't wrap words by default.
-set updatetime=50                       "" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set updatetime=250                      "" Match Neovim updatetime
+set timeoutlen=300                      "" Match Neovim timeoutlen
 set statusline=%<%f%m%r%=%y\ %{&ff}\ %l,%c%V/%o\ %B\ %P
 
 " Automatically remove trailing whitespace on saving

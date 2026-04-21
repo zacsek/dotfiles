@@ -1,1 +1,2 @@
-colorscheme gruvbox
+" Use onedark by default
+colorscheme onedark

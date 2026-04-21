@@ -11,21 +11,33 @@ endif
 " }}}
 
 call plug#begin('~/.vim/plugged')
-  Plug 'godlygeek/tabular'
-  Plug 'scrooloose/nerdcommenter'
+  " UI & Appearance
+  Plug 'joshdick/onedark.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'Yggdroot/indentLine'
+  Plug 'liuchengxu/vim-which-key'
 
-  Plug 'gruvbox-community/gruvbox'
-
-  " fern
+  " Navigation & Fuzzy Finding (Telescope equivalent)
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   Plug 'lambdalisue/fern.vim'
-  "Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-  "Plug 'lambdalisue/glyph-palette.vim'
 
-  " git
+  " Coding & Syntax (Treesitter/LSP/Conform equivalents)
+  Plug 'sheerun/vim-polyglot'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'dense-analysis/ale'
+  Plug 'godlygeek/tabular'
+  Plug 'scrooloose/nerdcommenter'
+  
+  " Git (Gitsigns/Fugitive equivalents)
   Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'rbong/vim-flog'
 
-  " undotree
+  " Tools
   Plug 'mbbill/undotree'
 call plug#end()

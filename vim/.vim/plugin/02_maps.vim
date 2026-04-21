@@ -1,22 +1,30 @@
 "--------------------------------------
 " Mappings
 "--------------------------------------
-let mapleader=","
-let g:mapleader=","
+let mapleader=" "
+let g:mapleader=" "
 
-" toggle between windows
-nnoremap <tab> <c-w>w
-nnoremap <s-tab> :tabnext<CR>
+" Basics
+inoremap jj <ESC>
+nnoremap ; :
+
+" Window Management
+nnoremap <Tab> <C-w>w
+nnoremap <S-Tab> <C-w>W
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Right> <C-w>l
+nnoremap <C-Down> <C-w>j
+nnoremap <C-Up> <C-w>k
+
+map qq :qa<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>cx :%bd<CR>
 
 " toggle between brackets.
 nnoremap <space> %
 
 " Save file even when forgot to sudo
 cmap w!! w !sudo tee >/dev/null %
-
-" Copy & Paste from system clipboard
-nnoremap  <leader>c "+yy
-nnoremap  <leader>p "+p
 
 " select previous pasted text
 nnoremap <silent> gv `[v`]
@@ -29,7 +37,6 @@ nnoremap <silent> <F3> :set hlsearch!<CR>
 " F4 - toggle line wrapping
 nnoremap <silent> <F4> :set wrap!<CR>
 " F5 - toggle list whitespace
-set listchars=eol:$,tab:>-,space:.
 nnoremap <silent> <F5> :set list!<CR>
 " F6 - toggle colorcolumn
 nnoremap <silent> <F6> :execute "set colorcolumn=" . (&colorcolumn == "" ? "80"  : "")<CR>
@@ -57,10 +64,6 @@ nnoremap <leader>cc :botright cope<CR>
 nnoremap <leader>] :cn<CR>
 " move to the prev error
 nnoremap <leader>[ :cp<CR>
-
-" only keep lines which contain search
-"nnoremap ,v :v/<C-R>//d<CR>gg
-"nnoremap ,d :g/<C-R>//d<CR>gg
 
 " search next/previous -- center in page
 nnoremap n nzz
