@@ -8,35 +8,74 @@ set -e # Exit on error
 DATE=$(date +%Y-%m-%d)
 
 # --- Argument Parsing ---
-INSTALL_FOR_ROOT=true
-if [ "$1" == "--no-root" ]; then
-    INSTALL_FOR_ROOT=false
+INSTALL_FOR_ROOT=false
+if [ "$1" == "--root" ]; then
+  INSTALL_FOR_ROOT=true
 fi
 # Assumes the script is run from the root of the dotfiles repository
-DOTFILES_DIR=$(pwd)
+DOTFILES_DIR=$(readlink -f "$(pwd)")
 USER_HOME="$HOME"
 ROOT_HOME="/root"
 
-# --- Backup Functions ---
+# --- Reusable Functions ---
 
-# Backs up a given path if it exists.
-# Usage: backup_item /path/to/item
+# Checks if an item is already a symlink into the dotfiles directory.
+# Usage: is_already_stowed /path/to/item [sudo]
+is_already_stowed() {
+    local item_path="$1"
+    local use_sudo="${2:-}"
+    local target
+
+    if $use_sudo test -L "$item_path"; then
+        target=$($use_sudo readlink -f "$item_path")
+        if [[ "$target" == "$DOTFILES_DIR"* ]]; then
+            return 0 # True
+        fi
+    fi
+    return 1 # False
+}
+
+# Backs up a given path if it exists and isn't already stowed.
+# Usage: backup_item /path/to/item [sudo]
 backup_item() {
     local item_path="$1"
-    if [ -e "$item_path" ] || [ -L "$item_path" ]; then
-        echo "Backing up: $item_path"
-        mv "$item_path" "${item_path}_backup_$DATE"
+    local use_sudo="${2:-}"
+
+    if is_already_stowed "$item_path" "$use_sudo"; then
+        echo "Skipping backup: $item_path is already a symlink to dotfiles."
+        return
+    fi
+
+    if $use_sudo test -e "$item_path" || $use_sudo test -L "$item_path"; then
+        echo "Backing up: $item_path ${use_sudo:+(as root)}"
+        $use_sudo mv "$item_path" "${item_path}_backup_$DATE"
     fi
 }
 
-# Backs up a given path as root if it exists.
-# Usage: sudo_backup_item /path/to/item
-sudo_backup_item() {
-    local item_path="$1"
-    if sudo test -e "$item_path" || sudo test -L "$item_path"; then
-        echo "Backing up: $item_path (as root)"
-        sudo mv "$item_path" "${item_path}_backup_$DATE"
-    fi
+# Processes a list of packages for a specific home directory.
+# Usage: process_packages /home/path [sudo]
+process_packages() {
+    local target_home="$1"
+    local use_sudo="${2:-}"
+    local user_name
+    user_name=$($use_sudo whoami)
+
+    echo "### Processing for user: $user_name ###"
+    for pkg in $PACKAGES; do
+        echo "--- Analyzing package: $pkg ---"
+
+        # Find conflicting files by capturing stow's dry-run error output.
+        $use_sudo stow -n -t "$target_home" "$pkg" 2>&1 >/dev/null | grep 'existing target' | \
+        sed -E 's/.*existing target (is not a symlink: )?//; s/ since.*//' | \
+        while read -r conflict; do
+            [ -z "$conflict" ] && continue
+            conflict=$(echo "$conflict" | xargs)
+            backup_item "$target_home/$conflict" "$use_sudo"
+        done
+
+        echo "Stowing '$pkg' for $user_name..."
+        $use_sudo stow -t "$target_home" "$pkg"
+    done
 }
 
 # --- Main Execution ---
@@ -52,48 +91,17 @@ fi
 echo "Found packages to stow: $PACKAGES"
 echo ""
 
-# --- Process for the current user ---
-echo "### Processing for user: $USER ###"
-for pkg in $PACKAGES; do
-    echo "--- Analyzing package: $pkg ---"
-    
-    # Find conflicting files by capturing stow's dry-run error output.
-    CONFLICTS=$(stow -n -t "$USER_HOME" "$pkg" 2>&1 >/dev/null | grep 'existing target' | sed 's/.*: //')
+# Process for the current user
+process_packages "$USER_HOME"
 
-    if [ -n "$CONFLICTS" ]; then
-        for conflict in $CONFLICTS; do
-            backup_item "$USER_HOME/$conflict"
-        done
-    fi
-
-    echo "Stowing '$pkg' for the current user..."
-    stow -t "$USER_HOME" "$pkg"
-done
-
-# --- Process for the root user (optional) ---
+# Process for the root user (optional)
 if [ "$INSTALL_FOR_ROOT" = true ]; then
     echo ""
-    echo "### Processing for root user ###"
-    echo "You may be prompted for your password."
-
-    for pkg in $PACKAGES; do
-        echo "--- Analyzing package for root: $pkg ---"
-
-        # Find conflicting files by capturing stow's dry-run error output as root.
-        CONFLICTS=$(sudo stow -n -t "$ROOT_HOME" "$pkg" 2>&1 >/dev/null | grep 'existing target' | sed 's/.*: //')
-
-        if [ -n "$CONFLICTS" ]; then
-            for conflict in $CONFLICTS; do
-                sudo_backup_item "$ROOT_HOME/$conflict"
-            done
-        fi
-
-        echo "Stowing '$pkg' for the root user..."
-        sudo stow -t "$ROOT_HOME" "$pkg"
-    done
+    echo "You may be prompted for your password for root installation."
+    process_packages "$ROOT_HOME" "sudo"
 else
     echo ""
-    echo "Skipping root user installation because --no-root was passed."
+    echo "Skipping root user installation."
 fi
 
 echo ""
