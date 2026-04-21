@@ -1,11 +1,12 @@
 [user]
-	name = Zoltan Szocs
+	name = Zoltán Szőcs
 	email = zacsek@gmail.com
 
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
+	; pager = diff-so-fancy | less --tabs=4 -RFX
 
 [diff]
 	noprefix = false
@@ -70,7 +71,11 @@
 	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	; diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
+
+[merge]
+  conflictStyle = zdiff3
 
 [color "diff-highlight"]
 	oldNormal = red bold
@@ -86,3 +91,7 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection

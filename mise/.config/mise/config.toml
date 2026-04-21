@@ -1,8 +1,9 @@
 
 [tools]
+bat = "latest"
+bat-extras = "latest"
 "cargo:lq" = "latest"
 fd = "latest"
-# gemini-cli = "latest"
 gemini = "latest"
 jqp = "latest"
 lazydocker = "latest"
@@ -10,10 +11,8 @@ lazygit = "latest"
 lazyjournal = "latest"
 mkcert = "latest"
 neovim = "latest"
-# mongosh = "latest"
 node = "latest"
-# nodejs = "latest"
-python = "latest"
+python = "3.11.14"
 ruby = "latest"
 sqlite = "latest"
 rust = "latest"
@@ -23,3 +22,6 @@ zoxide = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
+
+[settings.ruby]
+compile = false

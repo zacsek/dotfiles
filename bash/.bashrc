@@ -14,6 +14,7 @@ fi
 
 # add __git_ps1 function
 source ~/.config/bash/ext_functions/git-completion.bash
+source /usr/share/git/completion/git-prompt.sh
 
 declare -a Configs=( "paths" "env" "configs" "completions" "funcs" "aliases" "prompt" )
 
@@ -43,7 +44,7 @@ if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 
-eval "$(/home/zacsek/.local/bin/mise activate bash)"
+eval "$(/usr/bin/mise activate bash)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
