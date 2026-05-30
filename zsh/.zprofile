@@ -13,3 +13,7 @@ fi
 # Set language environment
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/zacsek/.local/bin:$PATH"

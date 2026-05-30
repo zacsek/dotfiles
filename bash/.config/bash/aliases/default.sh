@@ -114,3 +114,7 @@ alias zlu='zlib-flate -uncompress <'
 alias gdb='gdb --silent'
 alias tag='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q $PWD'
 alias make_goals="make -p | grep -E '^[a-zA-Z0-9_-]+:([^=]|$)' | grep -v '^Makefile' |  sed 's/://' | sort"
+
+figprint() { figlet "$*" | lolcat --seed 60; }
+alias fd="fd -p"
+alias ssh_pass='ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password'

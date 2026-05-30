@@ -1,52 +1,33 @@
-# If not running interactively, don't do anything
-[[ -z "$PS1" ]] && return
-
-# Tilix drop-down terminal in Mint needs to include this
-if [[ $TILIX_ID ]]; then
-    source /etc/profile.d/vte.sh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# ZSH options
-setopt autocd
-setopt extendedglob
-setopt notify
-setopt prompt_subst
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
-# Load and initialize the completion system
-autoload -U compinit
-compinit -i
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load and initialize git completion
-autoload -U +X bashcompinit && bashcompinit
-source /home/zacsek/dotfiles/bash/.config/bash/ext_functions/git-completion.bash
+Configs=( "paths" "env" "configs" "completions" "funcs" "aliases" )
 
-# Set up the prompt
-autoload -U promptinit
-promptinit
+# Ensure HOSTNAME is set (zsh natively uses HOST instead of HOSTNAME)
+HOSTNAME="${HOSTNAME:-$HOST}"
 
-# Source configuration files
-CONFIG_DIR="$HOME/.config/zsh"
-declare -a Configs=( "paths" "env" "configs" "completions" "funcs" "aliases" "prompt" )
-
-for cfg in ${Configs[@]}; do
+# inspired from: https://rafaelc.org/posts/a-way-to-organize-your-bash-aliases-on-multiple-hosts/
+for cfg in "${Configs[@]}"; do
     # first include defaults
-    if [ ! -d "$CONFIG_DIR/$cfg" ]; then
-        source "$CONFIG_DIR/$cfg.sh"
+    if [[ ! -d "$HOME/.config/bash/$cfg" ]]; then
+        [[ -f "$HOME/.config/bash/$cfg.sh" ]] && source "$HOME/.config/bash/$cfg.sh"
     else
-        source "$CONFIG_DIR/$cfg/default.sh"
+        [[ -f "$HOME/.config/bash/$cfg/default.sh" ]] && source "$HOME/.config/bash/$cfg/default.sh"
     fi
 
     # host specific stuff comes later
-    if [ -f "$CONFIG_DIR/$cfg/$HOSTNAME.sh" ]; then
-        source "$CONFIG_DIR/$cfg/$HOSTNAME.sh"
+    if [[ -f "$HOME/.config/bash/$cfg/$HOSTNAME.sh" ]]; then
+        source "$HOME/.config/bash/$cfg/$HOSTNAME.sh"
     fi
 done
 
-# Initialize zoxide, direnv, and mise
-eval "$(zoxide init zsh)"
-eval "$(direnv hook zsh)"
 eval "$(/home/zacsek/.local/bin/mise activate zsh)"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

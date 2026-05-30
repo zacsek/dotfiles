@@ -2,3 +2,4 @@
 .ruby-lsp
 # nvim/.config/nvim/plugged/
 # nvim/.config/nvim/undodir/
+lazy-lock.json
