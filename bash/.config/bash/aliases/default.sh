@@ -1,5 +1,5 @@
 ## LS
-alias l='eza -lah --group-directories-first --git --icons'
+alias l='eza -lah --group-directories-first --git --icons=auto'
 alias lg='eza -lTah --group-directories-first --git --icons --git-ignore'
 alias lt='eza -lTah --group-directories-first --git --icons'
 
@@ -99,7 +99,7 @@ alias nmlog='journalctl -u NetworkManager'
 alias pack='function _dpkgs() { local file=$(which $1); dpkg -S $file; }; _dpkgs'
 alias pdf='evince'
 alias pip='python3 -m pip'
-alias print='function _figlolprint() { local msg=$1; figlet $1 | lolcat --seed 60; }; _figlolprint'
+alias figprint='function _figlolprint() { local msg=$1; figlet $1 | lolcat --seed 60; }; _figlolprint'
 alias rg='rg -i'
 alias rip='rip --graveyard $GRAVEYARD' # https://github.com/nivekuil/rip
 alias temp='sensors'

@@ -13,7 +13,7 @@ alias cd_zsh='cd ~/.config/zsh'
 alias cd_dot='cd ~/dotfiles'
 
 alias ls='ls --color --group-directories-first'
-alias l='exa -la --group-directories-first --icons'
+alias l='exa -la --group-directories-first --icons=auto'
 alias lt='exa -lTa --group-directories-first'
 alias ll='ls -alh|less'
 alias lx='ls -lhX'

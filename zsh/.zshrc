@@ -30,4 +30,4 @@ for cfg in "${Configs[@]}"; do
     fi
 done
 
-eval "$(/home/zacsek/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
