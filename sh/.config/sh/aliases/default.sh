@@ -6,18 +6,20 @@ elif ! command -v bat &>/dev/null; then
 fi
 
 if command -v eza &>/dev/null; then
-    alias l='eza -lah --group-directories-first --git --icons=auto'
-    alias lg='eza -lTah --group-directories-first --git --icons --git-ignore'
-    alias lt='eza -lTah --group-directories-first --git --icons'
+    _ls_cmd='eza'
+    _ls_icons='--git --icons=auto'
 elif command -v exa &>/dev/null; then
-    alias l='exa -lah --group-directories-first --git --icons'
-    alias lg='exa -lTah --group-directories-first --git --icons --git-ignore'
-    alias lt='exa -lTah --group-directories-first --git --icons'
+    _ls_cmd='exa'
+    _ls_icons='--git --icons'
 else
-    alias l='ls -lah --color=auto --group-directories-first'
-    alias lg='ls -lah --color=auto --group-directories-first'
-    alias lt='ls -lah --color=auto --group-directories-first'
+    _ls_cmd='ls'
+    _ls_icons=''
 fi
+
+alias l="$_ls_cmd -lah --group-directories-first --git $_ls_icons"
+alias lg="$_ls_cmd -lTah --group-directories-first --git $_ls_icons --git-ignore"
+alias lt="$_ls_cmd -lTah --group-directories-first --git $_ls_icons"
+unset _ls_cmd _ls_icons
 
 ## QUICKIES
 alias ..='cd ..'
