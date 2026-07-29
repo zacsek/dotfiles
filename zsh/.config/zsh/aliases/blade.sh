@@ -9,10 +9,10 @@ alias ack='printf "Use rg instead!\n"'
 
 #alias l='exa -la --group-directories-first --icons'
 #alias lt='exa -lTa --group-directories-first'
-alias l='exa -la --group-directories-first --git --icons=auto'
-alias lg='exa -la --group-directories-first --git --icons=auto -G'
-alias lgit='exa -lTa --group-directories-first --git --icons=auto --git-ignore'
-alias lt='exa -lTa --group-directories-first --git --icons=auto'
+alias l='exa -la --group-directories-first --git --icons auto'
+alias lg='exa -la --group-directories-first --git --icons  auto -G'
+alias lgit='exa -lTa --group-directories-first --git --icons auto --git-ignore'
+alias lt='exa -lTa --group-directories-first --git --icons auto'
 
 alias rm='trash-put'
 alias less='less -r'
@@ -34,6 +34,9 @@ alias steam='cd ~/.steam/steam/steamapps/common'
 alias sessionbuddy='cd ~/.config/google-chrome/Default/databases/chrome-extension_edacconmaakjimmfgnblocblbcdcpbko_0'
 alias vic2='cd "/home/zacsek/.steam/steam/steamapps/common/Victoria 2"'
 alias v2save='cd "/home/zacsek/.local/share/Steam/steamapps/compatdata/42960/pfx/drive_c/users/steamuser/Documents/Paradox Interactive/Victoria II/save games/"'
+
+alias sec='gocryptfs ~/.secure-cipher ~/.secure'
+alias usec='$(command -v fusermount3 || echo fusermount) -u ~/.secure'
 
 # tmux commands
 alias scipio_up='ssh scipio -t tmux a -t upload'

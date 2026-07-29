@@ -4,6 +4,8 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# Clean up any conflicting aliases from the environment
+unalias print 2>/dev/null
 
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
@@ -18,15 +20,15 @@ HOSTNAME="${HOSTNAME:-$HOST}"
 # inspired from: https://rafaelc.org/posts/a-way-to-organize-your-bash-aliases-on-multiple-hosts/
 for cfg in "${Configs[@]}"; do
     # first include defaults
-    if [[ ! -d "$HOME/.config/bash/$cfg" ]]; then
-        [[ -f "$HOME/.config/bash/$cfg.sh" ]] && source "$HOME/.config/bash/$cfg.sh"
+    if [[ ! -d "$HOME/.config/zsh/$cfg" ]]; then
+        [[ -f "$HOME/.config/zsh/$cfg.sh" ]] && source "$HOME/.config/zsh/$cfg.sh"
     else
-        [[ -f "$HOME/.config/bash/$cfg/default.sh" ]] && source "$HOME/.config/bash/$cfg/default.sh"
+        [[ -f "$HOME/.config/zsh/$cfg/default.sh" ]] && source "$HOME/.config/zsh/$cfg/default.sh"
     fi
 
     # host specific stuff comes later
-    if [[ -f "$HOME/.config/bash/$cfg/$HOSTNAME.sh" ]]; then
-        source "$HOME/.config/bash/$cfg/$HOSTNAME.sh"
+    if [[ -f "$HOME/.config/zsh/$cfg/$HOSTNAME.sh" ]]; then
+        source "$HOME/.config/zsh/$cfg/$HOSTNAME.sh"
     fi
 done
 

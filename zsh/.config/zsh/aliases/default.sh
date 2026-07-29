@@ -13,7 +13,7 @@ alias cd_zsh='cd ~/.config/zsh'
 alias cd_dot='cd ~/dotfiles'
 
 alias ls='ls --color --group-directories-first'
-alias l='exa -la --group-directories-first --icons=auto'
+alias l='exa -la --group-directories-first --icons auto'
 alias lt='exa -lTa --group-directories-first'
 alias ll='ls -alh|less'
 alias lx='ls -lhX'
@@ -42,7 +42,7 @@ alias gitd="git diff"
 alias gitk='gitk --all'
 alias gitg='gitg --all'
 alias gitlog='git log --oneline --abbrev-commit --all --graph --decorate --color'
-alias git_remote_github="git remote add github $(gh repo view --json sshUrl --jq .sshUrl)"
+alias git_remote_github='git remote add github $(gh repo view --json sshUrl --jq .sshUrl)'
 
 # Convert dos to unix line endings
 alias crlf='find . -type f -exec dos2unix {} \\;'
