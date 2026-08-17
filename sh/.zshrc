@@ -37,3 +37,11 @@ if command -v mise &>/dev/null; then
 elif [ -x "$HOME/.local/bin/mise" ]; then
     eval "$("$HOME/.local/bin/mise" activate zsh 2>/dev/null)"
 fi
+
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init zsh)"
+fi
+
+if command -v direnv &>/dev/null; then
+    eval "$(direnv hook zsh)"
+fi

@@ -10,5 +10,6 @@ return {
 		"clangd", -- a powerful LSP for C++ (includes linting, static analysis, etc.)
 		"clang-format", -- a c++ formatter
 		"ruby-lsp",
+		"yaml-language-server",
 	}
 }

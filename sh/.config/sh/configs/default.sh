@@ -8,6 +8,13 @@ if [ -n "$ZSH_VERSION" ]; then
     export SAVEHIST=2000
     export HISTIGNORE="&:[ ]*:c:l:q:..*" # Zsh has a slightly different pattern syntax
     unsetopt BEEP
+
+    # Enable pkgfile command-not-found handler
+    [[ -r /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
+
+    # Disable spelling correction completely
+    unsetopt CORRECT
+    unsetopt CORRECT_ALL
 elif [ -n "$BASH_VERSION" ]; then
     # don't put duplicate lines in the history. See bash(1) for more options
     # ... or force ignoredups and ignorespace

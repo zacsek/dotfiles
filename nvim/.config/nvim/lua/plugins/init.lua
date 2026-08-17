@@ -10,6 +10,17 @@ return {
   },
 
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      ensure_installed = require("configs.mason").ensure_installed,
+    },
+    config = function(_, opts)
+      require("mason-tool-installer").setup(opts)
+    end,
+  },
+
+  {
     "stevearc/conform.nvim",
     event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",

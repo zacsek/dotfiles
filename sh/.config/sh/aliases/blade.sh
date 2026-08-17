@@ -10,6 +10,7 @@ alias sessionbuddy='cd ~/.config/google-chrome/Default/databases/chrome-extensio
 alias vic2='cd "/home/zacsek/.steam/steam/steamapps/common/Victoria 2"'
 alias v2save='cd "/home/zacsek/.local/share/Steam/steamapps/compatdata/42960/pfx/drive_c/users/steamuser/Documents/Paradox Interactive/Victoria II/save games/"'
 alias hoi4='cd "/home/zacsek/.steam/steam/steamapps/common/Hearts of Iron IV"'
+alias nc='yazi'
 
 # Security
 alias sec='gocryptfs ~/.secure-cipher ~/.secure'

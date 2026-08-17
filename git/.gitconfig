@@ -69,6 +69,7 @@
 	contributors = shortlog -n -s
 	remotes = remote -v
 	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
+	push-all = !git remote | xargs -I {} -n1 git push {}
 
 [interactive]
 	; diffFilter = diff-so-fancy --patch
