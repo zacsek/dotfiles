@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=Feathers Modern SDDM
+Description=A clean, modern SDDM theme matching the lock screen.
+Screenshot=screenshot.png
+License=CC-BY-SA
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=feathers-modern
+QtVersion=6

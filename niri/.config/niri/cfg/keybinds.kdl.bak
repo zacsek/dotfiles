@@ -1,0 +1,38 @@
+// This is where you can add your own keybinds.
+// See the system keybind file (referenced in `niri/config.kdl`) for extensive examples.
+
+// ────────────── Keybindings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
+
+binds {
+	// ─── Noctalia ───
+	// See available: qs -c noctalia-shell ipc show
+	// Example:
+	// Mod+Shift+Ctrl+Alt+Space hotkey-overlay-title="Emoji Picker" { spawn-sh "qs -c noctalia-shell ipc call launcher emoji"; }
+	Mod+Shift+C hotkey-overlay-title="Noctalia Control Center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+
+
+	// ─── Hot-Rules ───
+	// Toggle custom chunks of niri config with keybinds
+	// Mod+Shift+Ctrl+Alt+Space hotkey-overlay-title="Toggle global transparency" { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/hot-rules.sh transparency"; }
+
+	// ─── Applications ───
+	// Run applications with keybinds
+	Mod+Shift+Slash hotkey-overlay-title="Keybind Cheatsheet" { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
+	Mod+B hotkey-overlay-title="Google Chrome" { spawn "google-chrome-stable"; }
+	Mod+Shift+B hotkey-overlay-title="Google Chrome (Incognito)" { spawn "google-chrome-stable" "--incognito"; }
+
+
+	// Switch keyboard layout using Win + CapsLock
+	Mod+Caps_Lock { switch-layout "next"; }
+
+	// Toggle terminal transparency (Win + Shift + T)
+	Mod+Shift+T { spawn "bash" "/home/zacsek/.config/alacritty/toggle-opacity.sh"; }
+
+	// Open clipboard manager
+	Mod+Period hotkey-overlay-title="Clipboard" { spawn "copyq" "toggle"; }
+
+	// Open KeePassXC
+	Mod+K hotkey-overlay-title="KeePassXC" { spawn "keepassxc"; }
+}
+

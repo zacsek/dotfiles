@@ -1,0 +1,29 @@
+[config]
+
+[templates]
+
+# User-defined templates
+# Add your custom templates below
+# Example:
+# [templates.myapp]
+# input_path = "~/.config/noctalia/templates/myapp.css"
+# output_path = "~/.config/myapp/theme.css"
+# post_hook = "myapp --reload-theme"
+
+[templates.nvim-base16]
+input_path = "~/.config/nvim/lua/matugen-template.lua"
+output_path = "~/.config/nvim/lua/matugen.lua"
+post_hook = 'pkill -SIGUSR1 nvim'
+
+[templates.gcsd]
+input_path = "~/.local/share/feathers-and-flame/templates/gcsd/System-Template.gctheme"
+output_path = "~/.local/share/feathers-and-flame/script/helpers/tempfiles/gcsd/System.gctheme"
+post_hook = 'bash ~/.local/share/feathers-and-flame/script/cmd/gcsd-process.sh'
+
+[templates.qt5ct]
+input_path = "~/.local/share/feathers-and-flame/templates/qt/qtct.conf"
+output_path = "~/.config/qt5ct/colors/noctalia.conf"
+
+[templates.qt6ct]
+input_path = "~/.local/share/feathers-and-flame/templates/qt/qtct.conf"
+output_path = "~/.config/qt6ct/colors/noctalia.conf"

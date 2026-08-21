@@ -1,0 +1,78 @@
+// This is where you can add your own keybinds.
+// See the system keybind file (referenced in `niri/config.kdl`) for extensive examples.
+
+// ────────────── Keybindings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
+
+binds {
+	// ─── Noctalia ───
+	// See available: qs -c noctalia-shell ipc show
+	// Example:
+	// Mod+Shift+Ctrl+Alt+Space hotkey-overlay-title="Emoji Picker" { spawn-sh "qs -c noctalia-shell ipc call launcher emoji"; }
+	Mod+Shift+C hotkey-overlay-title="Noctalia Control Center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+	Ctrl+Alt+Delete repeat=false hotkey-overlay-title="Session Menu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+
+
+
+	// ─── Hot-Rules ───
+	// Toggle custom chunks of niri config with keybinds
+	// Mod+Shift+Ctrl+Alt+Space hotkey-overlay-title="Toggle global transparency" { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/hot-rules.sh transparency"; }
+
+	// ─── Applications ───
+	// Run applications with keybinds
+	Mod+Slash hotkey-overlay-title="Keybind Cheatsheet" { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
+	Mod+Return hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
+	Mod+B hotkey-overlay-title="Google Chrome" { spawn "google-chrome-stable"; }
+	Mod+Shift+B hotkey-overlay-title="Google Chrome (Incognito)" { spawn "google-chrome-stable" "--incognito"; }
+	Mod+O hotkey-overlay-title="Obsidian" { spawn "obsidian"; }
+	Mod+D hotkey-overlay-title="Discord" { spawn "flatpak" "run" "com.discordapp.Discord"; }
+
+	Mod+K hotkey-overlay-title="KeePassXC" { spawn "keepassxc"; }
+	Mod+G hotkey-overlay-title="GIMP" { spawn "gimp"; }
+  Mod+S hotkey-overlay-title="Sublime Text" { spawn "subl"; }
+
+	// Open clipboard manager
+	Mod+Period hotkey-overlay-title="Clipboard" { spawn "copyq" "toggle"; }
+	// Toggle btop system monitor (Win + Shift + Esc)
+	Mod+Shift+Escape hotkey-overlay-title="Toggle btop" { spawn "/home/zacsek/.config/niri/toggle-btop.sh"; }
+
+	// Switch keyboard layout using Win + CapsLock
+	Mod+Caps_Lock hotkey-overlay-title="Next keyboard layout" { switch-layout "next"; }
+
+	// Toggle terminal transparency (Win + Shift + T)
+	Mod+Shift+T hotkey-overlay-title="Toggle Transparency" { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/hot-rules.sh transparency"; }
+
+
+	// Swap Move Column to Workspace and Wallpaper Presets:
+	// 1. Move Column to Workspace 1-9 using Win + Shift + 1-9
+	Mod+Shift+1 hotkey-overlay-title="Move Column to Workspace 1			( <span background=\"#303030\"><tt>Numbers</tt></span> )" { move-column-to-workspace 1; }
+	Mod+Shift+2 { move-column-to-workspace 2; }
+	Mod+Shift+3 { move-column-to-workspace 3; }
+	Mod+Shift+4 { move-column-to-workspace 4; }
+	Mod+Shift+5 { move-column-to-workspace 5; }
+	Mod+Shift+6 { move-column-to-workspace 6; }
+	Mod+Shift+7 { move-column-to-workspace 7; }
+	Mod+Shift+8 { move-column-to-workspace 8; }
+	Mod+Shift+9 { move-column-to-workspace 9; }
+
+	// 2. Wallpaper Favorites/Presets using Win + Ctrl + 0-9
+	Mod+Ctrl+1 hotkey-overlay-title="Wallpaper Favourite 1					( <span background=\"#303030\"><tt>Numbers</tt></span> )" { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 1"; }
+	Mod+Ctrl+2 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 2"; }
+	Mod+Ctrl+3 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 3"; }
+	Mod+Ctrl+4 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 4"; }
+	Mod+Ctrl+5 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 5"; }
+	Mod+Ctrl+6 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 6"; }
+	Mod+Ctrl+7 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 7"; }
+	Mod+Ctrl+8 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 8"; }
+	Mod+Ctrl+9 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 9"; }
+	Mod+Ctrl+0 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 0"; }
+
+	// Lock screen and Overview remappings
+	Mod+L hotkey-overlay-title="Lock Screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+	Mod+Shift+O hotkey-overlay-title="Toggle Overview" { toggle-overview; }
+
+	// Reload Niri configuration and refresh Noctalia Keybind Cheatsheet
+	Mod+Ctrl+R hotkey-overlay-title="Reload Config & Cheatsheet" {
+		spawn-sh "niri msg action load-config-file && qs -c noctalia-shell ipc call plugin:keybind-cheatsheet refresh";
+	}
+}

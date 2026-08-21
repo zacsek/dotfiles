@@ -1,0 +1,11 @@
+// Laptop monitor is usually called this, but you may need to update it to match properly.
+// Run `niri msg outputs` to see names of connected monitors.
+output "eDP-1" {
+	off
+}
+
+/-output "HDMI-A-1" {
+	mode "1920x1080@50.000"
+	scale 1
+}
+
