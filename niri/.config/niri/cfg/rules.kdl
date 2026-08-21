@@ -14,6 +14,7 @@ window-rule {
 
 window-rule {
     match app-id="steam"
+    open-maximized true
     open-on-workspace "5"
 }
 
@@ -49,4 +50,9 @@ window-rule {
     // match app-id=r#"steam_app_\d+"#
 
     open-fullscreen true
+}
+
+window-rule {
+  match app-id="factorio"
+  open-fullscreen true
 }

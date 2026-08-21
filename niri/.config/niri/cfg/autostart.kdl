@@ -5,5 +5,5 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
 spawn-at-startup "steam" "-silent"
-spawn-at-startup "dropbox" "start"
+spawn-at-startup "maestral" "gui"
 spawn-at-startup "copyq" "--start-server"

@@ -7,63 +7,66 @@ include "~/.local/share/feathers-and-flame/config-ref/deployed/niri/cfg/transpar
 
 // Custom transparency rules for Alacritty terminal
 window-rule {
-	match app-id="^Alacritty$"
-	background-effect {
-		blur true
-	}
+  match app-id="^Alacritty$"
+  background-effect {
+    blur true
+  }
 }
 
 // Disable transparency for Neovim / Vim
 window-rule {
-	match app-id="^Alacritty$" title="(?i)n?vim"
-	opacity 1.0
+  match app-id="^Alacritty$" title="(?i)n?vim"
+  opacity 1.0
 }
 
 // Custom transparency rules for Ghostty terminal
 window-rule {
-	match app-id="com.mitchellh.ghostty"
-	background-effect {
-		blur true
-	}
+  match app-id="com.mitchellh.ghostty"
+  opacity 0.95
+  background-effect {
+    blur true
+  }
 }
 
 // Disable transparency for Neovim / Vim in Ghostty
 window-rule {
-	match app-id="com.mitchellh.ghostty" title="(?i)n?vim"
-	opacity 1.0
+  match app-id="com.mitchellh.ghostty" title="(?i)n?vim"
+  match app-id="com.mitchellh.ghostty" title="(?i)agy"
+  match app-id="com.mitchellh.ghostty" title="(?i)github copilot"
+  opacity 1.0
 }
 
 // Custom transparency and blur rules for Nautilus and Nemo (Files)
 window-rule {
-	match app-id="org.gnome.Nautilus"
-	match app-id="nemo"
-	opacity 0.93
-	background-effect {
-		blur true
-	}
+  match app-id="org.gnome.Nautilus"
+  match app-id="nemo"
+  opacity 0.93
+  background-effect {
+    blur true
+  }
 }
 
 window-rule {
-	match is-focused=false app-id="org.gnome.Nautilus"
-	match is-focused=false app-id="nemo"
-	opacity 0.85
+  match is-focused=false app-id="org.gnome.Nautilus"
+  match is-focused=false app-id="nemo"
+  opacity 0.85
 }
 
 // Disable transparency for Steam, Obsidian, Gimp, Discord, and browsers
 window-rule {
-	match app-id="steam"
-	match app-id="obsidian"
-	match app-id="gimp"
-	match app-id="discord"
-	match app-id=r#"(?i)chrome"#
-	match app-id=r#"(?i)chromium"#
-	match app-id=r#"(?i)browser"#
-	match app-id=r#"(?i)firefox"#
-	match app-id=r#"(?i)mullvad"#
-	match app-id=r#"(?i)tor"#
-	match app-id=r#"(?i)brave"#
-	match app-id=r#"(?i)opera"#
-	match app-id=r#"(?i)vivaldi"#
+  match app-id="steam"
+  match app-id="obsidian"
+  match app-id="gimp"
+  match app-id="discord"
+  match app-id=r#"(?i)chrome"#
+  match app-id=r#"(?i)chromium"#
+  match app-id=r#"(?i)browser"#
+  match app-id=r#"(?i)firefox"#
+  match app-id=r#"(?i)mullvad"#
+  match app-id=r#"(?i)tor"#
+  match app-id=r#"(?i)brave"#
+  match app-id=r#"(?i)opera"#
+  match app-id=r#"(?i)vivaldi"#
 
-	opacity 1.0
+  opacity 1.0
 }
