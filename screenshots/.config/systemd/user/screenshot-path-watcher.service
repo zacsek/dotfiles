@@ -1,0 +1,12 @@
+[Unit]
+Description=Screenshot Path to Clipboard Watcher
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/screenshot-path-watcher.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
