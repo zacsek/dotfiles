@@ -17,8 +17,7 @@
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "overviewLayer": true,
-        "pinnedApps": [
-        ],
+        "pinnedApps": [],
         "position": "center",
         "screenshotAnnotationTool": "",
         "showCategories": false,
@@ -28,8 +27,7 @@
         "viewMode": "grid"
     },
     "audio": {
-        "mprisBlacklist": [
-        ],
+        "mprisBlacklist": [],
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
         "spectrumMirrored": true,
@@ -59,8 +57,7 @@
         "middleClickAction": "none",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
-        "monitors": [
-        ],
+        "monitors": [],
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
         "outerCorners": true,
@@ -69,8 +66,7 @@
         "rightClickAction": "none",
         "rightClickCommand": "",
         "rightClickFollowMouse": true,
-        "screenOverrides": [
-        ],
+        "screenOverrides": [],
         "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
@@ -89,6 +85,37 @@
                 }
             ],
             "left": [
+                {
+                    "defaultSettings": {
+                        "aurCmd": "paru -Qua 2>/dev/null",
+                        "aurHomepageCmd": "LC_ALL=C paru -Si {id} 2>/dev/null | awk '/^URL/ {print $3}'",
+                        "boldText": true,
+                        "boldVer": true,
+                        "boldVerDesktop": true,
+                        "boldVerPanel": true,
+                        "closeButton": true,
+                        "closeOnSettings": false,
+                        "customIconPath": "",
+                        "desktopTip": true,
+                        "enableColorization": false,
+                        "flatpak": true,
+                        "hideOnEmpty": false,
+                        "hoverTip": true,
+                        "iconColor": "none",
+                        "iconName": "arrow-big-down-lines",
+                        "noctalia": true,
+                        "panelContext": true,
+                        "panelTooltip": true,
+                        "refreshInterval": 120,
+                        "refreshTimer": true,
+                        "systemCmd": "checkupdates 2>/dev/null",
+                        "toast": true,
+                        "tooltip": true,
+                        "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'",
+                        "useDistroLogo": false
+                    },
+                    "id": "plugin:arch-updater"
+                },
                 {
                     "characterCount": 2,
                     "colorizeIcons": false,
@@ -126,15 +153,13 @@
             ],
             "right": [
                 {
-                    "blacklist": [
-                    ],
+                    "blacklist": [],
                     "chevronColor": "none",
                     "colorizeIcons": false,
                     "drawerEnabled": false,
                     "hidePassive": false,
                     "id": "Tray",
-                    "pinned": [
-                    ]
+                    "pinned": []
                 },
                 {
                     "hideWhenZero": true,
@@ -147,10 +172,8 @@
                 {
                     "defaultSettings": {
                         "autoHeight": true,
-                        "bindOverrides": {
-                        },
-                        "cheatsheetData": [
-                        ],
+                        "bindOverrides": {},
+                        "cheatsheetData": [],
                         "columnCount": 3,
                         "descriptionTextColor": "",
                         "detectedCompositor": "",
@@ -290,13 +313,31 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "defaultSettings": {
+                        "connectedColor": "primary",
+                        "disableToastNotifications": false,
+                        "disconnectedColor": "none",
+                        "displayMode": "onhover"
+                    },
+                    "id": "plugin:network-manager-vpn"
+                },
+                {
+                    "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
+                    "customIconPath": "",
+                    "enableColorization": false,
+                    "icon": "rocket",
+                    "iconColor": "none",
+                    "id": "Launcher",
+                    "useDistroLogo": false
                 }
             ]
         }
     },
     "brightness": {
-        "backlightDeviceMappings": [
-        ],
+        "backlightDeviceMappings": [],
         "brightnessStep": 5,
         "enableDdcSupport": false,
         "enforceMinimum": true
@@ -392,8 +433,7 @@
         "enabled": false,
         "gridSnap": false,
         "gridSnapScale": false,
-        "monitorWidgets": [
-        ],
+        "monitorWidgets": [],
         "overviewEnabled": true
     },
     "dock": {
@@ -417,11 +457,9 @@
         "launcherIconColor": "none",
         "launcherPosition": "end",
         "launcherUseDistroLogo": false,
-        "monitors": [
-        ],
+        "monitors": [],
         "onlySameOutput": true,
-        "pinnedApps": [
-        ],
+        "pinnedApps": [],
         "pinnedStatic": true,
         "position": "right",
         "showDockIndicator": true,
@@ -476,8 +514,7 @@
         "lockScreenAnimations": false,
         "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 10000,
-        "lockScreenMonitors": [
-        ],
+        "lockScreenMonitors": [],
         "lockScreenTint": 0,
         "passwordChars": false,
         "radiusRatio": 1,
@@ -571,8 +608,7 @@
         "enabled": true,
         "location": "top_right",
         "lowUrgencyDuration": 3,
-        "monitors": [
-        ],
+        "monitors": [],
         "normalUrgencyDuration": 8,
         "overlayLayer": true,
         "respectExpireTimeout": false,
@@ -601,8 +637,7 @@
             2
         ],
         "location": "top_right",
-        "monitors": [
-        ],
+        "monitors": [],
         "overlayLayer": true
     },
     "plugins": {
@@ -748,8 +783,7 @@
         "directory": "/home/zacsek/.local/share/feathers-and-flame/wallpaper",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
-        "favorites": [
-        ],
+        "favorites": [],
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,

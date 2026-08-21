@@ -9,6 +9,7 @@ input {
 		repeat-rate 25 // Repeat speed (characters per second)
 		xkb {
 			layout "us,hu,de" // Use a particular keyboard layout
+			options "altwin:menu_win" // Menu is mapped to Win
 		}
 		numlock // Enable numlock on startup
 	}

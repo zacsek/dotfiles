@@ -9,6 +9,16 @@ unalias print 2>/dev/null
 
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
+# Disable zsh autocorrect
+unsetopt correct
+unsetopt correct_all
+unsetopt correctall
+
+# Enable package suggestion for unknown commands (like Ubuntu)
+if [[ -f /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
