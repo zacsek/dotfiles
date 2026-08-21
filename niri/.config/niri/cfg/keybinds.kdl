@@ -75,4 +75,7 @@ binds {
 	Mod+Ctrl+R hotkey-overlay-title="Reload Config & Cheatsheet" {
 		spawn-sh "niri msg action load-config-file && qs -c noctalia-shell ipc call plugin:keybind-cheatsheet refresh";
 	}
+
+	// Custom Screenshot Mapping
+	Mod+Shift+P hotkey-overlay-title="Take a Screenshot" { screenshot; }
 }

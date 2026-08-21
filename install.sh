@@ -101,7 +101,7 @@ process_packages() {
         # 2. File-level conflict backup:
         # Catch any remaining conflicts reported by stow (mostly individual files).
         $use_sudo stow -n -t "$target_home" "$pkg" 2>&1 >/dev/null | grep 'existing target' | \
-        sed -E 's/.*existing target (is not a symlink: )?//; s/ since.*//' | \
+        sed -E 's/.*existing target (is not a symlink: |is not owned by stow: |is neither a symlink nor a directory: )?//; s/ since.*//' | \
         while read -r conflict; do
             [ -z "$conflict" ] && continue
             conflict=$(echo "$conflict" | xargs)

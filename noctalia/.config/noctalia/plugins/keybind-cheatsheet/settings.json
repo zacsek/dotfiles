@@ -671,6 +671,13 @@
           "_verb": "screenshot-window",
           "_mods": "Alt",
           "_mainKey": "Print"
+        },
+        {
+          "keys": "Super + Shift + P",
+          "desc": "Take a Screenshot",
+          "_verb": "screenshot",
+          "_mods": "Super+Shift",
+          "_mainKey": "P"
         }
       ]
     },

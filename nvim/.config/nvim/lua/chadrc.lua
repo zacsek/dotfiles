@@ -8,27 +8,27 @@ local M = {}
 M.base46 = {
 	theme = "onedark",
 
-	transparency = true,
+	transparency = false,
 
-	hl_override = {
-		NormalFloat = { bg = "NONE" },
-		FloatBorder = { bg = "NONE" },
-		Pmenu = { bg = "NONE" },
-		Terminal = { bg = "NONE" },
-		EndOfBuffer = { bg = "NONE" },
-		FoldColumn = { bg = "NONE" },
-		Folded = { bg = "NONE" },
-		SignColumn = { bg = "NONE" },
-		NormalNC = { bg = "NONE" },
-		WhichKeyFloat = { bg = "NONE" },
-		TelescopeBorder = { bg = "NONE" },
-		TelescopeNormal = { bg = "NONE" },
-		TelescopePromptBorder = { bg = "NONE" },
-		TelescopePromptTitle = { bg = "NONE" },
-		NvimTreeNormal = { bg = "NONE" },
-		NvimTreeVertSplit = { bg = "NONE" },
-		NvimTreeEndOfBuffer = { bg = "NONE" },
-	},
+--	hl_override = {
+--		NormalFloat = { bg = "NONE" },
+--		FloatBorder = { bg = "NONE" },
+--		Pmenu = { bg = "NONE" },
+--		Terminal = { bg = "NONE" },
+--		EndOfBuffer = { bg = "NONE" },
+--		FoldColumn = { bg = "NONE" },
+--		Folded = { bg = "NONE" },
+--		SignColumn = { bg = "NONE" },
+--		NormalNC = { bg = "NONE" },
+--		WhichKeyFloat = { bg = "NONE" },
+--		TelescopeBorder = { bg = "NONE" },
+--		TelescopeNormal = { bg = "NONE" },
+--		TelescopePromptBorder = { bg = "NONE" },
+--		TelescopePromptTitle = { bg = "NONE" },
+--		NvimTreeNormal = { bg = "NONE" },
+--		NvimTreeVertSplit = { bg = "NONE" },
+--		NvimTreeEndOfBuffer = { bg = "NONE" },
+--	},
 }
 
 -- M.nvdash = { load_on_startup = true }

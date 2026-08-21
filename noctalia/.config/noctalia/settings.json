@@ -17,7 +17,8 @@
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "overviewLayer": true,
-        "pinnedApps": [],
+        "pinnedApps": [
+        ],
         "position": "center",
         "screenshotAnnotationTool": "",
         "showCategories": false,
@@ -27,7 +28,8 @@
         "viewMode": "grid"
     },
     "audio": {
-        "mprisBlacklist": [],
+        "mprisBlacklist": [
+        ],
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
         "spectrumMirrored": true,
@@ -57,7 +59,8 @@
         "middleClickAction": "none",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
-        "monitors": [],
+        "monitors": [
+        ],
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
         "outerCorners": true,
@@ -66,7 +69,8 @@
         "rightClickAction": "none",
         "rightClickCommand": "",
         "rightClickFollowMouse": true,
-        "screenOverrides": [],
+        "screenOverrides": [
+        ],
         "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
@@ -153,13 +157,15 @@
             ],
             "right": [
                 {
-                    "blacklist": [],
+                    "blacklist": [
+                    ],
                     "chevronColor": "none",
                     "colorizeIcons": false,
                     "drawerEnabled": false,
                     "hidePassive": false,
                     "id": "Tray",
-                    "pinned": []
+                    "pinned": [
+                    ]
                 },
                 {
                     "hideWhenZero": true,
@@ -172,8 +178,10 @@
                 {
                     "defaultSettings": {
                         "autoHeight": true,
-                        "bindOverrides": {},
-                        "cheatsheetData": [],
+                        "bindOverrides": {
+                        },
+                        "cheatsheetData": [
+                        ],
                         "columnCount": 3,
                         "descriptionTextColor": "",
                         "detectedCompositor": "",
@@ -241,6 +249,15 @@
                     "id": "plugin:tailscale"
                 },
                 {
+                    "defaultSettings": {
+                        "connectedColor": "primary",
+                        "disableToastNotifications": false,
+                        "disconnectedColor": "none",
+                        "displayMode": "onhover"
+                    },
+                    "id": "plugin:network-manager-vpn"
+                },
+                {
                     "displayMode": "onhover",
                     "iconColor": "none",
                     "id": "Network",
@@ -305,25 +322,6 @@
                     "showPowerProfiles": false
                 },
                 {
-                    "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "none",
-                    "colorizeSystemText": "none",
-                    "customIconPath": "/home/zacsek/.local/share/feathers-and-flame/icons/feathers.png",
-                    "enableColorization": false,
-                    "icon": "noctalia",
-                    "id": "ControlCenter",
-                    "useDistroLogo": false
-                },
-                {
-                    "defaultSettings": {
-                        "connectedColor": "primary",
-                        "disableToastNotifications": false,
-                        "disconnectedColor": "none",
-                        "displayMode": "onhover"
-                    },
-                    "id": "plugin:network-manager-vpn"
-                },
-                {
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
@@ -332,12 +330,23 @@
                     "iconColor": "none",
                     "id": "Launcher",
                     "useDistroLogo": false
+                },
+                {
+                    "colorizeDistroLogo": false,
+                    "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
+                    "customIconPath": "/home/zacsek/.local/share/feathers-and-flame/icons/feathers.png",
+                    "enableColorization": false,
+                    "icon": "noctalia",
+                    "id": "ControlCenter",
+                    "useDistroLogo": false
                 }
             ]
         }
     },
     "brightness": {
-        "backlightDeviceMappings": [],
+        "backlightDeviceMappings": [
+        ],
         "brightnessStep": 5,
         "enableDdcSupport": false,
         "enforceMinimum": true
@@ -433,7 +442,8 @@
         "enabled": false,
         "gridSnap": false,
         "gridSnapScale": false,
-        "monitorWidgets": [],
+        "monitorWidgets": [
+        ],
         "overviewEnabled": true
     },
     "dock": {
@@ -457,9 +467,11 @@
         "launcherIconColor": "none",
         "launcherPosition": "end",
         "launcherUseDistroLogo": false,
-        "monitors": [],
+        "monitors": [
+        ],
         "onlySameOutput": true,
-        "pinnedApps": [],
+        "pinnedApps": [
+        ],
         "pinnedStatic": true,
         "position": "right",
         "showDockIndicator": true,
@@ -514,7 +526,8 @@
         "lockScreenAnimations": false,
         "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 10000,
-        "lockScreenMonitors": [],
+        "lockScreenMonitors": [
+        ],
         "lockScreenTint": 0,
         "passwordChars": false,
         "radiusRatio": 1,
@@ -608,7 +621,8 @@
         "enabled": true,
         "location": "top_right",
         "lowUrgencyDuration": 3,
-        "monitors": [],
+        "monitors": [
+        ],
         "normalUrgencyDuration": 8,
         "overlayLayer": true,
         "respectExpireTimeout": false,
@@ -637,7 +651,8 @@
             2
         ],
         "location": "top_right",
-        "monitors": [],
+        "monitors": [
+        ],
         "overlayLayer": true
     },
     "plugins": {
@@ -783,7 +798,8 @@
         "directory": "/home/zacsek/.local/share/feathers-and-flame/wallpaper",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
-        "favorites": [],
+        "favorites": [
+        ],
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
