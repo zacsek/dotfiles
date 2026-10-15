@@ -20,7 +20,7 @@ NBox {
     Layout.rightMargin: Style.marginXS
     implicitHeight: Math.round(netColumn.implicitHeight + (Style.marginXL))
 
-    color: root.isConnected ? Qt.alpha(Color.mPrimary, 0.15) : Color.mSurface
+    color: root.isConnected ? Qt.alpha(NColor.mPrimary, 0.15) : NColor.mSurface
 
     ColumnLayout {
         id: netColumn
@@ -37,7 +37,7 @@ NBox {
             NIcon {
                 icon: "router"
                 pointSize: Style.fontSizeXXL
-                color: root.isConnected ? Color.mPrimary : Color.mOnSurface
+                color: root.isConnected ? NColor.mPrimary : NColor.mOnSurface
             }
 
             ColumnLayout {
@@ -48,7 +48,7 @@ NBox {
                     text: root.name
                     pointSize: Style.fontSizeM
                     font.weight: Style.fontWeightMedium
-                    color: Color.mOnSurface
+                    color: NColor.mOnSurface
                     elide: Text.ElideRight
                     Layout.fillWidth: true
                 }
@@ -59,7 +59,7 @@ NBox {
                     NText {
                         text: root.type
                         pointSize: Style.fontSizeXXS
-                        color: Color.mOnSurfaceVariant
+                        color: NColor.mOnSurfaceVariant
                     }
 
                     Item {
@@ -69,7 +69,7 @@ NBox {
                     
                     Rectangle {
                         visible: root.isConnected
-                        color: Color.mPrimary
+                        color: NColor.mPrimary
                         radius: height * 0.5
                         width: Math.round(connectedText.implicitWidth + (Style.marginS * 2))
                         height: Math.round(connectedText.implicitHeight + (Style.marginXS))
@@ -79,7 +79,7 @@ NBox {
                             anchors.centerIn: parent
                             text: pluginApi?.tr("common.connected")
                             pointSize: Style.fontSizeXXS
-                            color: Color.mOnPrimary
+                            color: NColor.mOnPrimary
                         }
                     }
                 }
@@ -92,7 +92,7 @@ NBox {
                 NBusyIndicator {
                     visible: root.isLoading
                     running: visible
-                    color: Color.mPrimary
+                    color: NColor.mPrimary
                     size: Style.baseWidgetSize * 0.5
                 }
 
@@ -101,7 +101,7 @@ NBox {
                     text: pluginApi?.tr("common.disconnect")
                     outlined: !hovered
                     fontSize: Style.fontSizeS
-                    backgroundColor: Color.mError
+                    backgroundColor: NColor.mError
                     enabled: !root.isLoading
                     onClicked: {
                         root.buttonClicked()

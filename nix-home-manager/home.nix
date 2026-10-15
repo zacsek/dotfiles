@@ -1,76 +1,172 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable ? pkgs, username ? "zacsek", ... }:
 
+let
+  # Helper to resolve packages from pkgs, falling back to pkgs-unstable, or null
+  getPkg = name: pkgs.${name} or pkgs-unstable.${name} or null;
+in
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "zacsek";
-  home.homeDirectory = "/home/zacsek";
+  home.username = username;
+  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+  home.stateVersion = "25.05";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  # ---------------------------------------------------------------------------
+  # CLI Tools (Synchronized with bom.txt)
+  # ---------------------------------------------------------------------------
+  home.packages = builtins.filter (p: p != null) [
+    # -------------------------------------------------------------------------
+    # 1. Package Managers, Runtimes & Version Managers
+    # -------------------------------------------------------------------------
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.nodejs
+    pkgs.yarn
+    pkgs.python3
+    pkgs.python3Packages.pip
+    pkgs.ruby
+    pkgs.mise
+    pkgs.stow
+    pkgs.mkcert
+    pkgs.flatpak
+    pkgs.dpkg
+    pkgs.frum
+    (getPkg "pacman")
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+    # -------------------------------------------------------------------------
+    # 2. Shells, Prompts & History
+    # -------------------------------------------------------------------------
+    pkgs.zsh
+    pkgs.bash
+    pkgs.atuin
+    pkgs.zoxide
+    pkgs.direnv
+    pkgs.zsh-powerlevel10k
+    pkgs.zsh-autosuggestions
+    pkgs.zsh-history-substring-search
+    pkgs.zsh-syntax-highlighting
+    (getPkg "pkgfile")
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # -------------------------------------------------------------------------
+    # 3. Terminal Workspaces & Multiplexers
+    # -------------------------------------------------------------------------
+    pkgs.alacritty
+    (getPkg "ghostty")
+    pkgs.tmux
+    pkgs.zellij
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    # -------------------------------------------------------------------------
+    # 4. Text Editors & Interactive Development Tools
+    # -------------------------------------------------------------------------
+    pkgs.neovim
+    pkgs.vim
+    (getPkg "opencode")
+
+    # -------------------------------------------------------------------------
+    # 5. File System, Search & Navigation Utilities
+    # -------------------------------------------------------------------------
+    pkgs.bat
+    (pkgs.bat-extras.batman or null)
+    (pkgs.bat-extras.batdiff or null)
+    pkgs.colordiff
+    pkgs.universal-ctags
+    pkgs.delta
+    pkgs.diff-so-fancy
+    pkgs.dos2unix
+    pkgs.dua
+    pkgs.eza
+    pkgs.fd
+    pkgs.fzf
+    pkgs.jdupes
+    pkgs.less
+    pkgs.lesspipe
+    pkgs.rm-improved # rip
+    pkgs.ripgrep
+    (getPkg "yazi")
+
+    # -------------------------------------------------------------------------
+    # 6. Terminal User Interfaces (TUIs) & Database Tools
+    # -------------------------------------------------------------------------
+    pkgs.lazygit
+    pkgs.lazydocker
+    (getPkg "lazysql")
+    (getPkg "lazyjournal")
+    (getPkg "jqp")
+    (getPkg "lq")
+
+    # -------------------------------------------------------------------------
+    # 7. Language Servers, Linters & Formatters
+    # -------------------------------------------------------------------------
+    pkgs.black
+    pkgs.clang-tools # clangd, clang-format
+    pkgs.codespell
+    pkgs.isort
+    (getPkg "lua-language-server")
+    (getPkg "prettierd")
+    (pkgs.nodePackages.prettier or pkgs.prettier or null)
+    (pkgs.nodePackages.eslint or pkgs.eslint or null)
+    (getPkg "pyright")
+    (getPkg "rubocop")
+    (getPkg "ruby-lsp")
+    pkgs.rustfmt
+    (getPkg "standardrb")
+    pkgs.stylua
+    (getPkg "vscode-langservers-extracted") # html-lsp, cssls, jsonls
+    (getPkg "yaml-language-server")
+
+    # -------------------------------------------------------------------------
+    # 8. Version Control & Development
+    # -------------------------------------------------------------------------
+    pkgs.git
+    pkgs.gh
+    pkgs.gitg
+    pkgs.gnumake
+    pkgs.ninja
+
+    # -------------------------------------------------------------------------
+    # 9. System, Monitoring & Process Management
+    # -------------------------------------------------------------------------
+    pkgs.btop
+    pkgs.util-linux # dmesg, etc.
+    pkgs.gdb
+    pkgs.inxi
+    pkgs.procps # pgrep, pkill
+    pkgs.lm_sensors # sensors
+    pkgs.upower
+
+    # -------------------------------------------------------------------------
+    # 10. Networking, Remote Access & Cloud
+    # -------------------------------------------------------------------------
+    pkgs.curl
+    pkgs.docker-client
+    pkgs.docker-compose
+    pkgs.fuse3 # fusermount, fusermount3
+    pkgs.gocryptfs
+    pkgs.iproute2 # ip
+    pkgs.k3s
+    pkgs.kubectl
+    (pkgs.netcat-gnu or pkgs.netcat or null) # nc
+    pkgs.rsync
+    pkgs.openssh # ssh
+    pkgs.sshfs
+    pkgs.tailscale
+
+    # -------------------------------------------------------------------------
+    # 11. Clipboard, Media & Terminal Formatting
+    # -------------------------------------------------------------------------
+    pkgs.copyq
+    (getPkg "expac")
+    pkgs.figlet
+    pkgs.jq
+    pkgs.lolcat
+    (getPkg "maestral")
+    (getPkg "matugen")
+    pkgs.libnotify # notify-send
+    (getPkg "quickshell")
+    pkgs.wl-clipboard # wl-copy
+    pkgs.xclip
+    pkgs.yt-dlp
+    pkgs.qpdf # zlib-flate
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/zacsek/etc/profile.d/hm-session-vars.sh
-  #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-
-  # Let Home Manager install and manage itself.
+  # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 }

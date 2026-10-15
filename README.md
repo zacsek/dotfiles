@@ -17,6 +17,7 @@ Compatible with [dotfiles_ansible_installer](https://github.com/zacsek/dotfiles_
 | [`git`](./git) | Git configuration |
 | [`mise`](./mise) | [Mise-en-place](https://mise.jdx.dev/) tool manager configs |
 | [`nix-home-manager`](./nix-home-manager) | Nix Home Manager configuration and flakes |
+| [`claude`](./claude) | Claude Code skill (`dotfiles`) describing this repo for quick config edits |
 
 ---
 

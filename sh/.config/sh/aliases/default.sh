@@ -7,18 +7,23 @@ fi
 
 if command -v eza &>/dev/null; then
     _ls_cmd='eza'
-    _ls_icons='--git --icons=auto'
+    _ls_git='--git'
+    _ls_gitignore='--git --git-ignore'
+    _ls_icons='--icons=auto'
 elif command -v exa &>/dev/null; then
     _ls_cmd='exa'
-    _ls_icons='--git --icons'
+    _ls_git='--git'
+    _ls_gitignore='--git --git-ignore'
+    _ls_icons='--icons=auto'
 else
     _ls_cmd='ls'
+    _ls_git=''
+    _ls_gitignore=''
     _ls_icons=''
 fi
 
-alias l="$_ls_cmd -lah --group-directories-first --git $_ls_icons"
-alias lg="$_ls_cmd -lTah --group-directories-first --git $_ls_icons --git-ignore"
-alias lt="$_ls_cmd -lTah --group-directories-first --git $_ls_icons"
+alias l="$_ls_cmd -lah --group-directories-first $_ls_git $_ls_icons"
+alias lt="$_ls_cmd -lTah --group-directories-first $_ls_gitignore $_ls_icons"
 unset _ls_cmd _ls_icons
 
 ## QUICKIES
@@ -37,12 +42,10 @@ alias lx='ls -lhX'
 alias v="nvim -O"
 alias nv="nvim -O"
 alias vim="nvim -O"
-alias valias="v ~/.config/sh/aliases/*"
-alias vsh="pushd ~/.config/sh && (find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O) && popd"
-alias vfzf="find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O"
-alias vpaths="v ~/.config/sh/paths/*"
-alias vcfg="pushd ~/.config/nvim/lua && (find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O) && popd"
-alias vrc="pushd ~/.config/nvim/lua/custom && (find . -type f -not -path '*/.git/*' | fzf-tmux -m | xargs nvim -O) && popd"
+alias valias="vpick ~/.config/sh/aliases/"
+alias vsh="vpick ~/.config/sh"
+alias vfzf="vpick"
+alias vrc="vpick ~/.config/nvim/lua"
 
 # Edit & Sourcing based on shell
 if [ -n "$ZSH_VERSION" ]; then
@@ -57,7 +60,7 @@ fi
 
 ## DIRS
 alias cd_sh='cd ~/.config/sh'
-alias cd_dot='cd ~/dotfiles'
+alias cd_dot='cd ~/.dotfiles'
 alias cd_nvim='cd ~/.config/nvim'
 alias dot="cd ~/.dotfiles"
 alias opt='cd ~/opt'
@@ -65,8 +68,8 @@ alias bin='cd ~/opt/bin'
 
 ## UPDATE/UPGRADE (OS Detection)
 if command -v pacman &>/dev/null; then
-    alias upd='sudo pacman -Sy'
     alias upg='sudo pacman -Syu'
+    alias rmpkg='sudo pacman -Rsn'
 elif command -v apt &>/dev/null; then
     alias upd='sudo apt update && apt list --upgradable'
     alias upg='sudo apt upgrade -y'
@@ -85,6 +88,7 @@ alias gg='gitg --all'
 alias gk='gitk --all'
 alias glog='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias git_remote_github="git remote add github \$(gh repo view --json sshUrl --jq .sshUrl)"
+alias gh_repos='gh repo list --limit 1000 --source --no-archived | cut -f1 | cut -d/ -f2 | sort'
 alias gh_stars="gh api user/starred --paginate --template '{{range .}}{{.full_name|color \"yellow\"}} ({{timeago .updated_at}}){{\"\\n\"}}{{end}}'"
 
 ## DOCKER
@@ -134,6 +138,14 @@ alias webpdf='google-chrome --headless --print-to-pdf'
 alias wttr='curl wttr.in/Esslingen'
 alias xclip='xclip -selection clipboard'
 alias zlu='zlib-flate -uncompress <'
+
+alias please='sudo'
+alias jctl='journalctl -p 3 -xb'
+
+## BUILD / COMPILATION
+_nproc=$(nproc 2>/dev/null || echo 1)
+alias make="make -j${_nproc}"
+unset _nproc
 
 ## C++
 alias gdb='gdb --silent'

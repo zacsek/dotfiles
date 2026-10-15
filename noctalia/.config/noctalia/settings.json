@@ -18,6 +18,11 @@
         "ignoreMouseInput": false,
         "overviewLayer": true,
         "pinnedApps": [
+            "org.prismlauncher.PrismLauncher",
+            "SPT - Launcher",
+            "SPT - Server",
+            "steam",
+            "com.anthropic.Claude"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -25,7 +30,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "viewMode": "grid"
+        "viewMode": "list"
     },
     "audio": {
         "mprisBlacklist": [
@@ -320,16 +325,6 @@
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
                     "showPowerProfiles": false
-                },
-                {
-                    "colorizeSystemIcon": "none",
-                    "colorizeSystemText": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "rocket",
-                    "iconColor": "none",
-                    "id": "Launcher",
-                    "useDistroLogo": false
                 },
                 {
                     "colorizeDistroLogo": false,

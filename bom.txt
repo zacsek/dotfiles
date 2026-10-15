@@ -1,0 +1,170 @@
+# ==============================================================================
+# Bill of Materials (BOM) - CLI Tools
+# Repository: .dotfiles
+# Description: CLI and TUI software mentioned, configured, or integrated across the repository
+#              (excluding OS-level desktop environments/compositors like Niri, Noctalia, GNOME).
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Package Managers, Runtimes & Version Managers
+# ------------------------------------------------------------------------------
+apt                     # Debian/Ubuntu package manager (CLI)
+apt-get                 # Debian/Ubuntu APT package handling utility
+cargo                   # Rust package manager and build system
+dpkg                    # Debian core package maintenance tool
+flatpak                 # Sandboxed application deployment and package manager
+frum                    # Fast Ruby version manager written in Rust
+home-manager            # Nix-based user environment and dotfile manager
+mise                    # Polyglot tool runtime and environment manager (asdf alternative)
+mkcert                  # Tool for managing zero-config local development CA certificates
+node                    # Node.js JavaScript runtime environment
+nix                     # Purely functional package manager
+pacman                  # Arch Linux package manager
+paru                    # Feature-packed AUR helper and pacman wrapper
+pip                     # Python package installer
+python / python3        # Python programming language interpreter
+ruby                    # Ruby programming language interpreter
+rust                    # Rust programming language compiler and toolchain
+sdkman (sdk)            # Software Development Kit Manager for JVM ecosystems
+stow                    # GNU Stow symlink-based dotfile manager
+yarn                    # Fast, reliable JavaScript dependency and package manager
+
+# ------------------------------------------------------------------------------
+# 2. Shells, Prompts & History
+# ------------------------------------------------------------------------------
+atuin                   # SQLite-backed, syncable, shell history search engine
+bash                    # GNU Bourne-Again SHell
+direnv                  # Environment variable manager based on directory location
+git-prompt (__git_ps1)  # Git repository prompt decoration and branch status display
+pkgfile                 # Arch Linux command-not-found package suggestion utility
+powerlevel10k (p10k)    # Fast, flexible Zsh theme emphasizing instant prompt
+zoxide                  # Smarter cd command with frecency-based directory jumping
+zsh                     # Z shell interactive command interpreter
+zsh-autosuggestions     # Fish-like autosuggestions for Zsh
+zsh-history-substring-search # History substring searching for Zsh
+zsh-syntax-highlighting # Fish-like syntax highlighting for Zsh
+
+# ------------------------------------------------------------------------------
+# 3. Terminal Workspaces & Multiplexers
+# ------------------------------------------------------------------------------
+alacritty               # GPU-accelerated, lightweight terminal emulator (CLI interface)
+ghostty                 # Modern, fast, GPU-accelerated terminal emulator (CLI interface)
+tmux                    # Terminal multiplexer for managing multiple sessions
+zellij                  # Terminal workspace and multiplexer with tabs and layouts
+
+# ------------------------------------------------------------------------------
+# 4. Text Editors & Interactive Development Tools
+# ------------------------------------------------------------------------------
+neovim (nvim)           # Extensible, modern Vim-fork text editor
+opencode                # Terminal-based AI agent and pair-programming assistant
+vim                     # Vi IMproved modal text editor
+
+# ------------------------------------------------------------------------------
+# 5. File System, Search & Navigation Utilities
+# ------------------------------------------------------------------------------
+bat / batcat            # Cat clone with syntax highlighting and Git integration
+bat-extras              # Suite of utility scripts built around bat (batdiff, batman, etc.)
+colordiff               # Colorized wrapper for diff output
+ctags                   # Source code tag generator for code indexing
+delta                   # Syntax-highlighting pager for git, diff, and grep output
+diff-so-fancy           # Human-readable git and terminal diff visualizer
+dos2unix                # DOS/MAC to UNIX text file format converter
+dua (dua-cli)           # Disk usage analyzer with interactive terminal interface
+eza / exa               # Modern, feature-rich replacement for ls with git integration
+fd                      # Fast and user-friendly alternative to find
+fzf                     # General-purpose command-line fuzzy finder
+fzf-tmux                # Script to run fzf inside a tmux split pane or popup
+iconv                   # Character encoding conversion utility
+jdupes                  # Powerful duplicate file identifier and remover
+less / lesspipe         # Pager utility with syntax/archive pre-processing filters
+rip                     # rm-improved: safe deletion tool using a graveyard directory
+ripgrep (rg)            # Line-oriented search tool combining grep speed with usability
+yazi                    # Blazing-fast terminal file manager written in Rust
+
+# ------------------------------------------------------------------------------
+# 6. Terminal User Interfaces (TUIs) & Database Tools
+# ------------------------------------------------------------------------------
+jqp                     # Interactive terminal playground for jq filter development
+lazydocker              # Terminal UI for managing Docker containers, images, and volumes
+lazygit                 # Simple terminal UI for git commands and branch management
+lazyjournal             # Interactive TUI for journal entries and daily logs
+lazysql                 # Terminal UI for exploring databases (PostgreSQL, MySQL, SQLite)
+lq                      # Terminal query and structured data processor
+
+# ------------------------------------------------------------------------------
+# 7. Language Servers, Linters & Formatters
+# ------------------------------------------------------------------------------
+black                   # Uncompromising Python code formatter
+clang-format            # Formatting tool for C/C++/Java/JavaScript/JSON
+clangd                  # C/C++ language server providing code completion and navigation
+codespell               # Spell checker for source code and documentation
+css-lsp (cssls)         # CSS/SCSS/LESS language server
+eslint                  # Pluggable JavaScript and TypeScript linter
+html-lsp (html)         # HTML language server
+isort                   # Python utility to sort and categorize imports
+lua-language-server     # Language server for Lua
+prettier / prettierd    # Opinionated multi-language code formatter (and daemon)
+pyright                 # Fast static type checker and LSP for Python
+rubocop                 # Ruby static code analyzer and style linter
+ruby-lsp                # Official language server for Ruby from Shopify
+rustfmt                 # Formatter for Rust code according to style guidelines
+standardrb              # Ruby linter and formatter based on RuboCop
+stylua                  # Opinionated Lua code formatter
+yaml-language-server    # Language server for YAML files (yamlls)
+
+# ------------------------------------------------------------------------------
+# 8. Version Control & Development
+# ------------------------------------------------------------------------------
+gh                      # GitHub official command-line interface
+git                     # Distributed version control system
+gitg                    # Git repository viewer (CLI launcher)
+gitk                    # Graphical git history repository browser (CLI launcher)
+make                    # GNU Make build automation and dependency tracking tool
+ninja                   # Small, fast build system focused on speed
+
+# ------------------------------------------------------------------------------
+# 9. System, Monitoring & Process Management
+# ------------------------------------------------------------------------------
+btop                    # Resource monitor showing CPU, memory, disks, and network
+dmesg                   # Tool to examine and control the kernel ring buffer
+gdb                     # GNU Project debugger for C, C++, and compiled languages
+inxi                    # CLI system information tool
+journalctl              # Query tool for the systemd journal logs
+pgrep                   # Look up processes based on name and attributes
+pkill                   # Send signals to processes based on name and attributes
+resolvectl              # CLI resolver control and DNS inspection tool
+sensors (lm_sensors)    # Hardware health monitoring tool (temperatures, voltages, fans)
+upower                  # Command-line tool to inspect power devices and batteries
+
+# ------------------------------------------------------------------------------
+# 10. Networking, Remote Access & Cloud
+# ------------------------------------------------------------------------------
+curl                    # Command-line utility for transferring data with URLs
+docker / docker-compose # Container platform and multi-container orchestration tool
+fusermount / fusermount3# Unmount and control FUSE filesystems
+gocryptfs               # Encrypted FUSE overlay filesystem CLI
+ip (iproute2)           # Network configuration, routing, and interface tool
+k3s                     # Lightweight Kubernetes distribution CLI
+kubectl                 # Kubernetes cluster orchestration control tool
+nc (netcat)             # Networking utility for reading/writing network connections
+rsync                   # Remote and local file synchronization utility
+ssh (OpenSSH)           # Secure Shell remote login client
+sshfs                   # FUSE filesystem client for mounting remote directories over SSH
+tailscale               # Zero config mesh VPN CLI client
+
+# ------------------------------------------------------------------------------
+# 11. Clipboard, Media & Terminal Formatting
+# ------------------------------------------------------------------------------
+copyq                   # Clipboard manager with powerful command-line scripting interface
+expac                   # Pacman/ALPM database data extraction utility
+figlet                  # Program for making large letters out of ordinary text
+jq                      # Lightweight and flexible command-line JSON processor
+lolcat                  # Tool for rainbow-coloring terminal text
+maestral                # Lightweight open-source Dropbox client CLI
+matugen                 # Material You color scheme generator from images/palettes
+notify-send (libnotify) # Utility to send desktop notifications from the command line
+qs (quickshell)         # QuickShell CLI client for IPC communication
+wl-copy (wl-clipboard)  # Command-line copy and paste utility for Wayland
+xclip                   # Command-line interface to the X11 clipboard
+yt-dlp / youtube-dl     # Feature-rich command-line video and audio downloader
+zlib-flate (qpdf)       # Raw zlib compression and decompression filter

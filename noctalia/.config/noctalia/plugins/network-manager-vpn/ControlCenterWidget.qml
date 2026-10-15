@@ -21,8 +21,8 @@ NIconButtonHot {
 
     colorFg: {
         const key = connectedCount > 0 ? connectedColor : disconnectedColor;
-        if (!key || key === "none") return Color.mPrimary;
-        return Color.resolveColorKeyOptional(key) ?? Color.mPrimary;
+        if (!key || key === "none") return NColor.mPrimary;
+        return NColor.resolveColorKeyOptional(key) ?? NColor.mPrimary;
     }
 
     onClicked: pluginApi?.togglePanel(screen, this)

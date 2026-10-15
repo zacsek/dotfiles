@@ -85,7 +85,7 @@ process_packages() {
             
             # Skip common "container" directories that should not be symlinked as a whole
             case "$dir" in
-                .config|.config/systemd|.config/systemd/user|.local|.local/bin|.local/share|.cache|.ssh|.gnupg) continue ;;
+                .config|.config/systemd|.config/systemd/user|.local|.local/bin|.local/share|.cache|.ssh|.gnupg|.claude|.claude/skills) continue ;;
             esac
 
             local target_path="$target_home/$dir"

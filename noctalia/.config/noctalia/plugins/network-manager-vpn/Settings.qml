@@ -103,7 +103,7 @@ ColumnLayout {
                 visible: root.vpnList.length === 0
                 text: pluginApi?.tr("settings.noVpnConnections")
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: NColor.mOnSurfaceVariant
                 Layout.leftMargin: Style.marginXS
             }
 
@@ -119,7 +119,7 @@ ColumnLayout {
                     Layout.leftMargin: Style.marginXS
                     Layout.rightMargin: Style.marginXS
                     implicitHeight: Math.round(rowContent.implicitHeight + Style.marginL)
-                    color: vpnRow.confirmingDelete ? Qt.alpha(Color.mError, 0.12) : Color.mSurface
+                    color: vpnRow.confirmingDelete ? Qt.alpha(NColor.mError, 0.12) : NColor.mSurface
 
                     ColumnLayout {
                         id: rowContent
@@ -138,7 +138,7 @@ ColumnLayout {
                             NIcon {
                                 icon: "router"
                                 pointSize: Style.fontSizeXXL
-                                color: modelData.connected ? Color.mPrimary : Color.mOnSurfaceVariant
+                                color: modelData.connected ? NColor.mPrimary : NColor.mOnSurfaceVariant
                             }
 
                             ColumnLayout {
@@ -149,7 +149,7 @@ ColumnLayout {
                                     text: modelData.name
                                     pointSize: Style.fontSizeM
                                     font.weight: Style.fontWeightMedium
-                                    color: Color.mOnSurface
+                                    color: NColor.mOnSurface
                                     elide: Text.ElideRight
                                     Layout.fillWidth: true
                                 }
@@ -157,7 +157,7 @@ ColumnLayout {
                                 NText {
                                     text: modelData.type || "vpn"
                                     pointSize: Style.fontSizeXXS
-                                    color: Color.mOnSurfaceVariant
+                                    color: NColor.mOnSurfaceVariant
                                 }
 
                             }
@@ -188,7 +188,7 @@ ColumnLayout {
                                 visible: vpnRow.confirmingDelete
                                 text: pluginApi?.tr("common.delete")
                                 fontSize: Style.fontSizeXS
-                                backgroundColor: Color.mError
+                                backgroundColor: NColor.mError
                                 outlined: false
                                 onClicked: {
                                     main.removeConnection(root.pendingDeleteUuid);

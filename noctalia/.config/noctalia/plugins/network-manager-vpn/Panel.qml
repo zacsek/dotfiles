@@ -50,7 +50,7 @@ Item {
                         NIcon {
                             icon: "shield"
                             pointSize: Style.fontSizeXXL
-                            color: Color.mPrimary
+                            color: NColor.mPrimary
                         }
 
                         NLabel {
@@ -195,21 +195,21 @@ Item {
                             NIcon {
                                 icon: "search"
                                 pointSize: 48
-                                color: Color.mOnSurfaceVariant
+                                color: NColor.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.emptyTitle")
                                 pointSize: Style.fontSizeL
-                                color: Color.mOnSurfaceVariant
+                                color: NColor.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.emptyDescription")
                                 pointSize: Style.fontSizeS
-                                color: Color.mOnSurfaceVariant
+                                color: NColor.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 

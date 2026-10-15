@@ -15,7 +15,7 @@ window-rule {
 window-rule {
     match app-id="steam"
     open-maximized true
-    open-on-workspace "5"
+    open-on-workspace "3"
 }
 
 window-rule {

@@ -81,7 +81,8 @@ return {
   -- Added missing plugins referenced in mappings.lua
   {
     "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
+    cmd = "Trouble",
+    opts = {},
   },
   {
     "folke/todo-comments.nvim",

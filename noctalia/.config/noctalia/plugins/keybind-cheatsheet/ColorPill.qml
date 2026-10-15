@@ -28,8 +28,8 @@ Rectangle {
   implicitHeight: Math.round(Style.baseWidgetSize * 1.1)
 
   radius: Style.iRadiusM
-  color: Color.mSurface
-  border.color: mouseArea.containsMouse ? Color.mPrimary : Color.mOutline
+  color: NColor.mSurface
+  border.color: mouseArea.containsMouse ? NColor.mPrimary : NColor.mOutline
   border.width: Style.borderS
 
   MouseArea {
@@ -67,7 +67,7 @@ Rectangle {
       Layout.preferredHeight: pill.height * 0.62
       radius: width / 2
       color: pill.textMode ? pill.textModeBg : pill.displayColor
-      border.color: Color.mOutline
+      border.color: NColor.mOutline
       border.width: Style.borderS
 
       NText {
@@ -87,7 +87,7 @@ Rectangle {
             ? pill.hexValue.toUpperCase()
             : (pill.placeholderText.length > 0 ? pill.placeholderText : "auto")
       family: Settings.data.ui.fontFixed
-      color: pill.hexValue.length > 0 ? Color.mOnSurface : Color.mOnSurfaceVariant
+      color: pill.hexValue.length > 0 ? NColor.mOnSurface : NColor.mOnSurfaceVariant
       pointSize: Style.fontSizeXS
       elide: Text.ElideRight
     }
@@ -97,14 +97,14 @@ Rectangle {
       Layout.preferredHeight: pill.height * 0.62
       visible: pill.hasClipboardColor
       radius: width / 2
-      color: pasteArea.containsMouse ? Color.mPrimary : Color.mSurfaceVariant
-      border.color: Color.mOutline
+      color: pasteArea.containsMouse ? NColor.mPrimary : NColor.mSurfaceVariant
+      border.color: NColor.mOutline
       border.width: Style.borderS
 
       NIcon {
         anchors.centerIn: parent
         icon: "clipboard"
-        color: pasteArea.containsMouse ? Color.mOnPrimary : Color.mOnSurfaceVariant
+        color: pasteArea.containsMouse ? NColor.mOnPrimary : NColor.mOnSurfaceVariant
         pointSize: Style.fontSizeS
       }
 

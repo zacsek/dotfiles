@@ -14,8 +14,11 @@ ruby = "latest"
 zellij = "latest"
 zoxide = "latest"
 gh = "latest"
-node = "26.2.0"
+node = "latest"
 rust = "latest"
+"aqua:jorgerojas26/lazysql" = "latest"
+opencode = "latest"
+ollama = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]

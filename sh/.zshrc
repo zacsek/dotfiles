@@ -7,20 +7,12 @@ fi
 # Clean up any conflicting aliases from the environment
 unalias print 2>/dev/null
 
-source /usr/share/cachyos-zsh-config/cachyos-config.zsh
-
-# Disable zsh autocorrect
-unsetopt correct
-unsetopt correct_all
-unsetopt correctall
-
-# Enable package suggestion for unknown commands (like Ubuntu)
-if [[ -f /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
-    source /usr/share/doc/pkgfile/command-not-found.zsh
+# Source imported CachyOS / Zsh environment configuration
+if [[ -f "$HOME/.config/sh/cachyos.zsh" ]]; then
+    source "$HOME/.config/sh/cachyos.zsh"
+elif [[ -f "/usr/share/cachyos-zsh-config/cachyos-config.zsh" ]]; then
+    source "/usr/share/cachyos-zsh-config/cachyos-config.zsh"
 fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 Configs=( "paths" "env" "configs" "completions" "funcs" "aliases" "prompt" )
 
@@ -42,6 +34,11 @@ for cfg in "${Configs[@]}"; do
     fi
 done
 
+# Gitea completion
+if command -v tea &>/dev/null; then
+  source <(tea completion zsh)
+fi
+
 if command -v mise &>/dev/null; then
     eval "$(mise activate zsh 2>/dev/null)"
 elif [ -x "$HOME/.local/bin/mise" ]; then
@@ -55,3 +52,8 @@ fi
 if command -v direnv &>/dev/null; then
     eval "$(direnv hook zsh)"
 fi
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+

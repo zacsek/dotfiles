@@ -22,9 +22,9 @@ NIconButton {
   customRadius: Style.radiusL
 
   colorBg: Style.capsuleColor
-  colorFg: Color.mOnSurface
-  colorBgHover: Color.mHover
-  colorFgHover: Color.mOnHover
+  colorFg: NColor.mOnSurface
+  colorBgHover: NColor.mHover
+  colorFgHover: NColor.mOnHover
   colorBorder: "transparent"
   colorBorderHover: "transparent"
 

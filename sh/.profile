@@ -25,3 +25,5 @@ fi
 
 # Added by Antigravity CLI installer
 export PATH="/home/zacsek/.local/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"

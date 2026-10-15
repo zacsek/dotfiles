@@ -20,7 +20,7 @@ end, { desc = 'Toggle diagnostics' })
 --  See `:help wincmd` for a list of all window commands
 map('n', 'qq', '<Cmd>:qa<CR>', { desc = 'Quit all' })
 map('n', '<Tab>', '<C-w>w', { desc = 'Move focus to the next window' })
-map('n', '<S-Tab', '<C-w>W', { desc = 'Move focus to the previous window' })
+map('n', '<S-Tab>', '<C-w>W', { desc = 'Move focus to the previous window' })
 map('n', '<C-Left>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-Right>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-Down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -61,11 +61,11 @@ map('n', 'g,', '<C-t>', { desc = 'Jump back to previous location' })
 
 -- Trouble
 map("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find Todo" })
-map("n", "<leader>qx", "<cmd>TroubleToggle<CR>", { desc = "Open Trouble" })
-map("n", "<leader>qw", "<cmd>TroubleToggle workspace_diagnostics<CR>", { desc = "Open Workspace Trouble" })
-map("n", "<leader>qd", "<cmd>TroubleToggle document_diagnostics<CR>", { desc = "Open Document Trouble" })
-map("n", "<leader>qq", "<cmd>TroubleToggle quickfix<CR>", { desc = "Open Quickfix" })
-map("n", "<leader>ql", "<cmd>TroubleToggle loclist<CR>", { desc = "Open Location List" })
+map("n", "<leader>qx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Open Trouble" })
+map("n", "<leader>qw", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Open Workspace Trouble" })
+map("n", "<leader>qd", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Open Document Trouble" })
+map("n", "<leader>qq", "<cmd>Trouble qflist toggle<CR>", { desc = "Open Quickfix" })
+map("n", "<leader>ql", "<cmd>Trouble loclist toggle<CR>", { desc = "Open Location List" })
 map("n", "<leader>qt", "<cmd>TodoTrouble<CR>", { desc = "Open Todo Trouble" })
 
 -- Tests

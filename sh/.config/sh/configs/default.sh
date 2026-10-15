@@ -6,11 +6,8 @@ if [ -n "$ZSH_VERSION" ]; then
     setopt HIST_IGNORE_SPACE     # Ignore commands starting with a space
     setopt APPEND_HISTORY        # Append to history file
     export SAVEHIST=2000
-    export HISTIGNORE="&:[ ]*:c:l:q:..*" # Zsh has a slightly different pattern syntax
+    export HISTORY_IGNORE="(\&|[bf]g|c|clear|history|exit|q|pwd|* --help|..*)"
     unsetopt BEEP
-
-    # Enable pkgfile command-not-found handler
-    [[ -r /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
     # Disable spelling correction completely
     unsetopt CORRECT

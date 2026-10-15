@@ -38,7 +38,7 @@ NIconButton {
     property var cfg: pluginApi?.pluginSettings || ({})
     property var defaults: pluginApi?.manifest?.metadata?.defaultSettings || ({})
     readonly property string iconColorKey: cfg.iconColor ?? defaults.iconColor ?? "none"
-    readonly property color iconColor: Color.resolveColorKey(iconColorKey)
+    readonly property color iconColor: NColor.resolveColorKey(iconColorKey)
 
     // ===== VISIBILITY =====
     visible: shouldShow
@@ -51,10 +51,10 @@ NIconButton {
     applyUiScale: false
     customRadius: Style.radiusL
 
-    colorBg: hasMountedDevices ? Color.mPrimary : Style.capsuleColor
-    colorFg: hasMountedDevices ? Color.mOnPrimary : root.iconColor !== "transparent" ? root.iconColor : Color.mOnSurface
-    colorBgHover: Color.mHover
-    colorFgHover: Color.mOnHover
+    colorBg: hasMountedDevices ? NColor.mPrimary : Style.capsuleColor
+    colorFg: hasMountedDevices ? NColor.mOnPrimary : root.iconColor !== "transparent" ? root.iconColor : NColor.mOnSurface
+    colorBgHover: NColor.mHover
+    colorFgHover: NColor.mOnHover
     colorBorder: "transparent"
     colorBorderHover: "transparent"
 
@@ -70,7 +70,7 @@ NIconButton {
         width: badgeText.implicitWidth + Style.marginS
         height: badgeText.implicitHeight + Style.marginXS
         radius: height / 2
-        color: Color.mPrimary
+        color: NColor.mPrimary
         z: 1
 
         NText {
@@ -78,7 +78,7 @@ NIconButton {
             anchors.centerIn: parent
             text: mountedCount
             pointSize: Style.fontSizeXXS
-            color: Color.mOnPrimary
+            color: NColor.mOnPrimary
             font.weight: Font.Bold
         }
     }
