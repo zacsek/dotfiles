@@ -21,7 +21,7 @@ edit by hand, then `mise install`. Also add the tool to `bom.txt` (right categor
 ## git — `git/.gitconfig`
 
 Sections: `[user]`, `[core]` (pager = delta), `[pull] rebase`, `[alias]` (tab-indented, aligned `=`),
-`[delta]`, `[credential "https://gitea.zacsek.net"]`. Validate: `git config --list >/dev/null`.
+`[delta]`. Validate: `git config --list >/dev/null`.
 
 ## vim — `vim/.vimrc`, `vim/.vim/plugin/NN_<topic>.vim`
 

@@ -18,7 +18,6 @@ node = "latest"
 rust = "latest"
 "aqua:jorgerojas26/lazysql" = "latest"
 opencode = "latest"
-ollama = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]

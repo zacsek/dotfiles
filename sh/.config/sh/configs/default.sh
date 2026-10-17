@@ -5,6 +5,7 @@ if [ -n "$ZSH_VERSION" ]; then
     setopt HIST_IGNORE_ALL_DUPS  # Ignore duplicates
     setopt HIST_IGNORE_SPACE     # Ignore commands starting with a space
     setopt APPEND_HISTORY        # Append to history file
+    unsetopt SHARE_HISTORY       # Up arrow = this terminal only (oh-my-zsh enables it); Atuin covers the rest
     export SAVEHIST=2000
     export HISTORY_IGNORE="(\&|[bf]g|c|clear|history|exit|q|pwd|* --help|..*)"
     unsetopt BEEP

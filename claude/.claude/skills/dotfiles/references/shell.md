@@ -6,9 +6,9 @@ Both `~/.zshrc` (primary, CachyOS default) and `~/.bashrc` source the **same** m
 ## Load order
 
 `.zshrc`: p10k instant prompt → `~/.config/sh/cachyos.zsh` (oh-my-zsh, p10k, zsh plugins, fzf, command-not-found)
-→ modular loop → tool hooks (`tea`, `mise`, `zoxide`, `direnv`, `atuin`).
+→ modular loop → tool hooks (`fj`, `mise`, `zoxide`, `direnv`, `atuin`).
 
-`.bashrc`: git-completion + git-prompt → modular loop → tool hooks (`tea`, `zoxide`, `direnv`, cargo, `mise`,
+`.bashrc`: git-completion + git-prompt → modular loop → tool hooks (`fj`, `zoxide`, `direnv`, cargo, `mise`,
 sdkman, `atuin`).
 
 Modular loop, in this order:

@@ -34,9 +34,9 @@ for cfg in "${Configs[@]}"; do
     fi
 done
 
-# Gitea completion
-if command -v tea &>/dev/null; then
-  source <(tea completion zsh)
+# Forgejo CLI completion
+if command -v fj &>/dev/null; then
+  source <(fj completion zsh)
 fi
 
 if command -v mise &>/dev/null; then
@@ -55,5 +55,12 @@ fi
 
 . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
+# Atuin only on Ctrl-R; Up/Down keep zsh's own (per-terminal) history
+eval "$(atuin init zsh --disable-up-arrow)"
+if (( ${+widgets[history-substring-search-up]} )); then
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[OA' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+    bindkey '^[OB' history-substring-search-down
+fi
 

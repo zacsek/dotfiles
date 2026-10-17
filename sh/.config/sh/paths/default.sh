@@ -1,5 +1,5 @@
 if [ -n "$ZSH_VERSION" ]; then
-    path+=("$HOME/opt/bin" "$HOME/.cargo/bin" "$HOME/.local/bin" "$HOME/.local/share/mise/installs" "$HOME/go/bin")
+    path+=("$HOME/opt/bin" "$HOME/.cargo/bin" "$HOME/.local/bin" "$HOME/.local/share/mise/installs" "$HOME/go/bin" "$HOME/.local/state/ai-setup/profile/bin")
     setopt localoptions nullglob
     path+=($HOME/opt/*/bin)
     path+=($HOME/opt/*/*/bin)
@@ -11,4 +11,5 @@ elif [ -n "$BASH_VERSION" ]; then
     export PATH=$PATH:~/.local/share/mise/installs
     export PATH=$PATH:~/go/bin
     export PATH=$PATH:~/opt/bin
+    export PATH=$PATH:~/.local/state/ai-setup/profile/bin
 fi

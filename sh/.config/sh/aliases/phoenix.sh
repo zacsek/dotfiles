@@ -13,3 +13,5 @@ alias pcsave='cd "~/.local/share/Steam/steamapps/compatdata/1210320/pfx/drive_c/
 
 alias mnt_scipio='sshfs scipio:/var/lib/transmission-daemon/downloads /mnt/scipio'
 alias umnt_scipio='fusermount3 -u /mnt/scipio'
+
+alias ai='claude'

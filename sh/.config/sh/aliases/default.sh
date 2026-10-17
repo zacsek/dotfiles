@@ -89,6 +89,7 @@ alias gk='gitk --all'
 alias glog='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias git_remote_github="git remote add github \$(gh repo view --json sshUrl --jq .sshUrl)"
 alias gh_repos='gh repo list --limit 1000 --source --no-archived | cut -f1 | cut -d/ -f2 | sort'
+alias gh_clone_all="gh repo list --limit 1000 --source --no-archived --json nameWithOwner -q '.[].nameWithOwner' | xargs -P8 -I{} sh -c '[ -d \"\${1#*/}\" ] || gh repo clone \"\$1\"' _ {}"
 alias gh_stars="gh api user/starred --paginate --template '{{range .}}{{.full_name|color \"yellow\"}} ({{timeago .updated_at}}){{\"\\n\"}}{{end}}'"
 
 ## DOCKER

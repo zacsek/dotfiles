@@ -37,9 +37,9 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
 
-# Gitea completion
-if command -v tea &>/dev/null; then
-  source <(tea completion bash)
+# Forgejo CLI completion
+if command -v fj &>/dev/null; then
+  source <(fj completion bash)
 fi
 
 if command -v zoxide &>/dev/null; then
