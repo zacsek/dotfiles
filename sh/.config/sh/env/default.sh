@@ -2,7 +2,7 @@ export DOTFILES=~/.dotfiles
 export ANSIBLE_NOCOWS=1
 export MANROFFOPT="-c"
 export MISE_STATUS_MESSAGE_MISSING_TOOLS=never
-export FJ_FALLBACK_HOST=https://forgejo.zacsek.net
+export FJ_FALLBACK_HOST=https://git.zacsek.net
 
 
 if [ -n "$ZSH_VERSION" ]; then

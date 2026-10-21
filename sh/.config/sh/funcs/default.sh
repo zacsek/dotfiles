@@ -58,7 +58,7 @@ figprint() {
 }
 
 forgejo_add_remote() {
-  local url="ssh://git@forgejo.zacsek.net:2222/zacsek/${1:-$(basename "$PWD")}.git"
+  local url="ssh://git@git.zacsek.net:2222/zacsek/${1:-$(basename "$PWD")}.git"
   git remote add forgejo "$url" 2>/dev/null || git remote set-url forgejo "$url"
   git remote -v | grep "^forgejo"
 }
