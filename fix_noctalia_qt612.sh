@@ -55,6 +55,9 @@ fi
 # 4. Restart the QuickShell Noctalia daemon
 echo "==> Restarting Noctalia bar..."
 pkill -f "qs.*noctalia-shell" || true
+while pgrep -f "qs.*noctalia-shell" >/dev/null 2>&1; do
+    sleep 0.2
+done
 sleep 0.5
 nohup qs -d -c noctalia-shell >/dev/null 2>&1 &
 

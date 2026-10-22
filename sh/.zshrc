@@ -53,14 +53,18 @@ if command -v direnv &>/dev/null; then
     eval "$(direnv hook zsh)"
 fi
 
-. "$HOME/.atuin/bin/env"
+if [ -f "$HOME/.atuin/bin/env" ]; then
+    . "$HOME/.atuin/bin/env"
+fi
 
 # Atuin only on Ctrl-R; Up/Down keep zsh's own (per-terminal) history
-eval "$(atuin init zsh --disable-up-arrow)"
-if (( ${+widgets[history-substring-search-up]} )); then
-    bindkey '^[[A' history-substring-search-up
-    bindkey '^[OA' history-substring-search-up
-    bindkey '^[[B' history-substring-search-down
-    bindkey '^[OB' history-substring-search-down
+if command -v atuin &>/dev/null; then
+    eval "$(atuin init zsh --disable-up-arrow)"
+    if (( ${+widgets[history-substring-search-up]} )); then
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^[OA' history-substring-search-up
+        bindkey '^[[B' history-substring-search-down
+        bindkey '^[OB' history-substring-search-down
+    fi
 fi
 
