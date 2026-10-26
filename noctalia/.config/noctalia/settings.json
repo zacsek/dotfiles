@@ -22,7 +22,8 @@
             "SPT - Launcher",
             "SPT - Server",
             "steam",
-            "com.anthropic.Claude"
+            "com.anthropic.Claude",
+            "org.gnome.SimpleScan"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
