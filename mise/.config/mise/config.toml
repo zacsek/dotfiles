@@ -20,6 +20,8 @@ rust = "latest"
 opencode = "latest"
 claude = "latest"
 atuin = "latest"
+"aqua:cargo-bins/cargo-binstall" = "latest"
+herdr = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]

@@ -19,3 +19,4 @@ alias usec='$(command -v fusermount3 || echo fusermount) -u ~/.secure'
 alias mnt_scipio='sshfs scipio:/var/lib/transmission-daemon/downloads /mnt/scipio'
 alias umnt_scipio='fusermount3 -u /mnt/scipio'
 
+alias ai='claude'
