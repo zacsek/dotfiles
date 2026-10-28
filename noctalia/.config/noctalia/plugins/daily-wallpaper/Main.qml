@@ -63,7 +63,16 @@ Item {
         return {
             mkdir: {
                 command: ["mkdir", "-p", task.wpDir],
-                next: () => "checkExists"
+                next: () => task.metadata ? "writeMetadata" : "checkExists"
+            },
+            writeMetadata: {
+                command: ["sh", "-c", 'printf "%s\\n" "$1" > "$2"', "sh", JSON.stringify(task.metadata, null, 2), task.metaFile],
+                next: exitCode => {
+                    if (exitCode !== 0) {
+                        Logger.w("DailyWallpaperPlugin", `Failed to write wallpaper metadata (exit ${exitCode})`);
+                    }
+                    return "checkExists";
+                }
             },
             checkExists: {
                 command: ["test", "-f", task.wpFile],
@@ -94,7 +103,7 @@ Item {
                 next: () => "cleanup"
             },
             cleanup: {
-                command: ["find", task.wpDir, "-name", `${task.prefix}-*.jpg`, "-type", "f", "-mtime", "+5", "-delete"],
+                command: ["find", task.wpDir, "(", "-name", `${task.prefix}-*.jpg`, "-o", "-name", `${task.prefix}-*.json`, ")", "-type", "f", "-mtime", "+5", "-delete"],
                 next: () => "done"
             }
         }[task.step] || null;
@@ -159,7 +168,7 @@ Item {
         executeCurrentTaskCommand();
     }
 
-    function runWallpaperDownload(prefix, dateString, primaryUrl, fallbackUrl) {
+    function runWallpaperDownload(prefix, dateString, primaryUrl, fallbackUrl, metadata) {
         if (!homeDir) {
             throw new Error("HOME environment variable is not available");
         }
@@ -171,6 +180,8 @@ Item {
             prefix: prefix,
             wpDir: wpDir,
             wpFile: wpFile,
+            metaFile: `${wpDir}/${prefix}-${dateString}.json`,
+            metadata: metadata || null,
             primaryUrl: primaryUrl,
             fallbackUrl: fallbackUrl || "",
             downloaded: false,
@@ -187,7 +198,8 @@ Item {
             resolved.prefix,
             dateString,
             resolved.primaryUrl,
-            resolved.fallbackUrl
+            resolved.fallbackUrl,
+            resolved.metadata
         );
     }
 

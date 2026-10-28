@@ -66,6 +66,7 @@ binds {
 	Mod+Ctrl+8 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 8"; }
 	Mod+Ctrl+9 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 9"; }
 	Mod+Ctrl+0 hotkey-overlay-title=null { spawn-sh "bash /home/zacsek/.local/share/feathers-and-flame/script/cmd/wallpaper.sh preset 0"; }
+	Mod+Shift+W hotkey-overlay-title="Wallpaper Info" { spawn-sh "bash ~/.config/noctalia/plugins/daily-wallpaper/wallpaper-info.sh"; }
 
 	// Lock screen and Overview remappings
 	Mod+L hotkey-overlay-title="Lock Screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
