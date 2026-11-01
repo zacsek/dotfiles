@@ -1,5 +1,5 @@
-export JAVA=$(readlink -qf $(which java 2>/dev/null) 2>/dev/null)
-if [ -n "$JAVA" ]; then
+export JAVA=$(readlink -qf "$(command -v java)" 2>/dev/null)
+if [ -n "$JAVA" ] && [ -z "$JAVA_HOME" ] && [ "${JAVA##*/}" = java ]; then
     export JAVA_HOME=${JAVA%/bin/*}
 fi
 export GRAVEYARD=/home/zacsek/.local/share/Trash
